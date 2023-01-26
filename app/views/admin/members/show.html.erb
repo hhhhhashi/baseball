@@ -1,0 +1,34 @@
+<h1>会員詳細情報</h1>
+
+<%= link_to edit_admin_member_path(@member) do %>
+<p>編集する</p>
+<% end %>
+
+<p>会員ID</p>
+<%= @member.id %>
+
+<p>会員名</p>
+<%= @member.last_name + @member.first_name %>
+
+<p>性別</p>
+<%= @member.sex %>
+
+<p>年齢</p>
+<%= @member.old %>
+
+<p>生年月日</p>
+<%= @member.birthday %>
+
+<p>メールアドレス</p>
+<%= @member.email %>
+
+<p>電話番号</p>
+<%= @member.telephone_number %>
+
+<p>会員ステータス</p>
+      <% if @member.is_deleted == false %>
+        有効
+      <% else @member.is_deleted == true %>
+        退会
+      <% end %>
+

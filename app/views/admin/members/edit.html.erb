@@ -1,0 +1,30 @@
+<h1>会員情報編集</h1>
+<%= form_with model: @member,url: admin_member_path(@member),method: :patch do |f| %>
+
+<p>氏名</p>
+<%= f.text_field :last_name %> <%= f.text_field :first_name %>
+
+<P>年齢</P>
+<%= f.text_field :old %>
+
+<p>生年月日</p>
+<%= f.text_field :birthday %>
+
+<p>性別</p>
+<%= f.text_field :sex %>
+
+<p>メールアドレス</p>
+<%= f.text_field :email %>
+
+<P>電話番号</P>
+<%= f.text_field :telephone_number %>
+
+<p>自己紹介</p>
+<%= f.text_field :introduction %>
+
+<p>会員ステータス</p>
+<p><%= f.radio_button :is_deleted, false %>有効</p>
+<p><%= f.radio_button :is_deleted, true %>退会</p>
+<%= f.submit '編集内容を保存',class: "btn btn-success" %>
+
+<% end %>

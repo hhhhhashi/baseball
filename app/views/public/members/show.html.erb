@@ -1,0 +1,28 @@
+<h1>myページ</h1>
+
+<%= link_to information_edit_path do %>
+<p>編集する</p>
+<% end %>
+
+<p>会員名</p>
+<%= @member.last_name + @member.first_name %>
+
+<p>性別</p>
+<%= @member.sex %>
+
+<p>年齢</p>
+<%= @member.old %>
+
+<p>生年月日</p>
+<%= @member.birthday %>
+
+<p>メールアドレス</p>
+<%= @member.email %>
+
+<p>電話番号</p>
+<%= @member.telephone_number %>
+
+<p>募集要項いいね一覧画面</p>
+<%= link_to applies_path do %>
+<p>申込履歴一覧画面</p>
+<% end %>

@@ -1,0 +1,70 @@
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "public/shared/error_messages", resource: resource %>
+
+  <P>名前</P>
+  <div class="field">
+    <%= f.label :"(姓)" %><br />
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :"(名)" %><br />
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+  </div>
+
+  <p>年齢</p>
+  <div class="field">
+    <%= f.text_field :old, autofocus: true, autocomplete: "old" %>
+  </div>
+
+  <p>生年月日</p>
+  <div class="field">
+    <%= f.text_field :birthday, autofocus: true, autocomplete: "birthday" %>
+  </div>
+
+  <p>性別</p>
+  <div class="field">
+    <%= f.text_field :sex, autofocus: true, autocomplete: "sex" %>
+  </div>
+
+  <p>自己紹介</p>
+  <div class="field">
+    <%= f.text_field :introduction, autofocus: true, autocomplete: "introduction" %>
+  </div>
+
+  <p>電話番号(ハイフンなし)</p>
+  <div class="field">
+    <%= f.text_field :telephone_number, autofocus: true, autocomplete: "telephone_number" %>
+  </div>
+
+  <p>メールアドレス</p>
+  <div class="field">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <p>パスワード(6文字以上)</P>
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <p>パスワード(確認用)</p>
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "新規登録", class: "btn btn-succes" %>
+  </div>
+<% end %>
+
+<h2>既に登録済みの方</h2>
+<p><%=link_to "こちら", new_member_session_path %>からログインしてください</p>
+
+<%= render "public/shared/links" %>

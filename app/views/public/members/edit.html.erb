@@ -1,0 +1,31 @@
+<h1>会員情報編集画面</h1>
+
+<%= form_with model: @member,url: information_edit_path do |f| %>
+
+<dl class="row">
+    <dt class="col-2"><p>氏名</p></dt>
+    <dd class="col-10"><%= f.text_field :last_name %> <%= f.text_field :first_name %></dd>
+
+    <dt class="col-2"><p>年齢</p></dt>
+    <dd class="col-10"><%= f.text_field :old %></dd>
+
+    <dt class="col-2"><p>生年月日</p></dt>
+    <dd class="col-10"><%= f.text_field :birthday %></dd>
+
+    <dt class="col-2"><p>性別</p></dt>
+    <dd class="col-10"><%= f.text_field :sex %></dd>
+
+    <dt class="col-2"><p>電話番号</p></dt>
+    <dd class="col-10"><%= f.text_field :telephone_number %></dd>
+
+    <dt class="col-2"><p>メールアドレス</p></dt>
+    <dd class="col-10"><%= f.text_field :email %></dd>
+
+    <dt class="col-2"><p>本文</p></dt>
+    <dd class="col-10"><%= f.text_field :introduction %></dd>
+  </dl>
+  <%= f.submit '編集内容を保存',class: "btn btn-success" %>
+
+  <% end %>
+
+  <%= link_to "退会する" , unsubscribe_path ,class: "btn btn-danger mt-4" %>

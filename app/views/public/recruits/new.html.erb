@@ -1,0 +1,42 @@
+<h1>助っ人募集要項作成入力画面</h1>
+<%= form_with model: @recruit, url: recruit_path do |f| %>
+
+<p>タイトル</p>
+<%= f.text_field :title %>
+
+<p>チーム名</p>
+<%= f.text_field :team %>
+
+
+<P>開催場所</P>
+<%= f.text_field :area %>
+
+<p>募集日時</p>
+<%= f.date_field :day_and_time %>
+
+<p>チームレベル</p>
+<%= f.number_field :team_level %>
+
+<P>掲載期間</P>
+<%= f.text_field :post_period %>
+
+
+<p>本文</p>
+<%= f.text_field :content %>
+
+<p>代表者電話番号</p>
+<%= @member.telephone_number %>
+
+<P>代表者メールアドレス</P>
+<%= @member.email %>
+
+<P>代表者氏名</P>
+<%= @member.last_name + @member.first_name %>
+
+
+<%= f.submit "確認画面へ進む", class: "btn btn-succes" %>
+
+<% end %>
+
+<p></p>
+<P></P>
