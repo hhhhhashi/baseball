@@ -35,8 +35,8 @@ Rails.application.routes.draw do
 
   scope module: :public do
     resources :recruits, only: [:new, :create, :destroy, :index, :show, :edit, :update]
-    post 'confirm' => 'recruits#confirm'
-    get 'confirm' => 'recruits#confirm'
+    post 'check' => 'recruits#check'
+    get 'check' => 'recruits#check'
   end
   #募集要項作成ページ、一覧ページを作成するルーティングの設定
 

@@ -1,0 +1,50 @@
+<h1>募集要項登録確認画面</h1>
+
+<P>タイトル</P>
+<%= @reruit.title %>
+
+<p>チーム名</p>
+<%= @reruit.team %>
+
+<p>開催場所</p>
+<%= @reruit.area %>
+
+<p>募集日時</p>
+<%= @reruit.day_and_time %>
+
+
+<p>チームレベル</p>
+<%= @reruit.team_level %>
+
+
+<p>掲載期間</p>
+<%= @reruit.post_period %>
+
+<p>本文</p>
+<%= @reruit.content %>
+
+<p>代表者番号</p>
+<%= @member.telephone_number %>
+
+<p>代表者メールアドレス</p>
+<%= @member.email %>
+
+<p>代表者氏名</p>
+<%= @member.last_name + @member.first_name %>
+
+
+<%= form_with model: @order do |f| %>
+
+<%= f.hidden_field :member_id, :value => current_member.id %>
+<%= f.hidden_field :title, :value => @recruit.title %>
+<%= f.hidden_field :team, :value => @recruit.team %>
+<%= f.hidden_field :area, :value =>  @recruit.area %>
+<%= f.hidden_field :day_and_time, :value => @recruit.day_and_time %>
+<%= f.hidden_field :team_level, :value => @recruit.team_level %>
+<%= f.hidden_field :post_period, :value => @recruit.post_period %>
+<%= f.hidden_field :content, :value => @recruit.content %>
+
+
+<%= f.submit '募集要項を投稿する' ,class: "btn btn-success" %>
+
+<% end %>
