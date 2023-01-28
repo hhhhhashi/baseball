@@ -1,5 +1,5 @@
 <h1>助っ人募集要項作成入力画面</h1>
-<%= form_with model: @recruit, url: check_path , method: :post do |f| %>
+<%= form_with model: @recruit, url: check_path ,method: :post do |f| %>
 
 <p>タイトル</p>
 <%= f.text_field :title %>
@@ -34,6 +34,6 @@
 <%= @member.last_name + @member.first_name %>
 
 
-<%= f.submit "確認画面へ進む", class: "btn btn-succes" %>
+<%= f.submit "募集する", class: "btn btn-succes" %>
 
 <% end %>

@@ -1,5 +1,6 @@
 class Public::RecruitsController < ApplicationController
   def index
+    @recruits=Recruit.all
   end
 
   def show
@@ -12,8 +13,9 @@ class Public::RecruitsController < ApplicationController
 
   def create
     @recruit = Recruit.new(recruit_params)
+    @recruit.member_id = current_member.id
     @recruit.save
-    redirect_to root_path
+    redirect_to recruit_path(@recruit)
   end
 
   def edit
@@ -26,8 +28,8 @@ class Public::RecruitsController < ApplicationController
   end
 
   def check
-    @recruit=Recruit.find(params[:id])
-    @member =current_member
+   @recruit = Recruit.new(recruit_params)
+   @member = current_member
   end
 
   private
