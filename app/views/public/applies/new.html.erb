@@ -1,1 +1,42 @@
 <h1>申し込み情報入力画面</h1>
+<h2>個人情報</h2>
+<%= form_with model: @apply, url: confirm_path ,method: :post do |f| %>
+
+<p>氏名</p>
+<%= current_member.name %>
+
+<p>年齢</p>
+<%= current_member.old %>
+
+<p>メールアドレス</p>
+<%= current_member.email %>
+
+<p>電話番号</p>
+<%= current_member.telephone_number %>
+
+
+<h2>募集要項詳細</h2>
+<div>
+  <p>たいとる</p>
+  <%= @recruit.title %>
+
+  <p>ちーむめい</p>
+  <%= @recruit.team %>
+
+  <p>活動エリア</p>
+  <%= @recruit.area %>
+
+  <p>日時</p>
+  <%= @recruit.day_and_time %>
+
+  <p>ちーむれべる</p>
+  <%= @recruit.team_level %>
+</div>
+
+
+<%= f.submit "申し込む", class: "btn btn-succes" %>
+
+<% end %>
+
+
+
