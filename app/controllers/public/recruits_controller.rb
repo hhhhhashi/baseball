@@ -14,7 +14,7 @@ class Public::RecruitsController < ApplicationController
   def create
     @recruit = Recruit.new(recruit_params)
     @recruit.member_id = current_member.id
-    @recruit.save
+    @recruit.save!
     redirect_to recruit_path(@recruit)
   end
 

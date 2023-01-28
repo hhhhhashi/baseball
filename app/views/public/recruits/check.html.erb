@@ -33,7 +33,7 @@
 <%= @member.last_name + @member.first_name %>
 
 
-<%= form_with model: @order do |f| %>
+<%= form_with model: @recruit do |f| %>
 
 <%= f.hidden_field :member_id, :value => current_member.id %>
 <%= f.hidden_field :title, :value => @recruit.title %>
