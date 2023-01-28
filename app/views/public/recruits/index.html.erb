@@ -7,7 +7,9 @@
 <% @recruits.each do |recruit| %>
 <div>
   <p>たいとる</p>
+  <%= link_to recruit_path(recruit) do %>
   <%= recruit.title %>
+  <% end %>
 
   <p>ちーむめい</p>
   <%= recruit.team %>

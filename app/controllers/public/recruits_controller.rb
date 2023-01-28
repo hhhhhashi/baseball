@@ -1,9 +1,10 @@
 class Public::RecruitsController < ApplicationController
   def index
-    @recruits=Recruit.all
+    @recruits = Recruit.all
   end
 
   def show
+    @recruit = Recruit.find(params[:id])
   end
 
   def new
