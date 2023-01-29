@@ -9,6 +9,7 @@ class Public::AppliesController < ApplicationController
   end
 
   def show
+    @apply = Apply.find(params[:id])
   end
 
   def create

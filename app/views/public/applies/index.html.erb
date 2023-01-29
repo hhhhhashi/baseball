@@ -2,12 +2,18 @@
 
 <% @applies.each do |apply| %>
 
-<p>氏名</p>
-<%= apply.member.last_name + apply.member.first_name %>
-
 <p>募集要項タイトル</p>
 <%= link_to apply_path(apply) do %>
 <%= apply.recruit.title %>
 <% end %>
+
+<p>参加日</p>
+<%= apply.recruit.day_and_time %>
+
+<p>場所</p>
+<%= apply.recruit.area %>
+
+<p>申込ステータス</p>
+<%= apply.is_apply %>
 
 <% end %>

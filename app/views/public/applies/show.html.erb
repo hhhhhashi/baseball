@@ -1,1 +1,30 @@
-<h1>申し込み履歴詳細画面</h1>
+<h2><%=@apply.is_apply %></h2>
+<h1><%= @apply.recruit.title %></h1>
+
+<p>参加日</p>
+<%= @apply.recruit.day_and_time %>
+
+<p>場所</p>
+<%= @apply.recruit.area %>
+
+<p>チーム名</p>
+<%= @apply.recruit.team %>
+
+<p>本文</p>
+<%= @apply.recruit.content %>
+
+
+<h2>会員情報</h2>
+
+<p>代表者氏名</p>
+<%= @apply.member.last_name + @apply.member.first_name %>
+
+<p>代表者メールアドレス</p>
+<%= @apply.member.email %>
+
+<p>代表者電話番号</p>
+<%= @apply.member.telephone_number %>
+
+
+
+<p></p>
