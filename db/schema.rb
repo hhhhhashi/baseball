@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2023_01_21_131044) do
   end
 
   create_table "areas", force: :cascade do |t|
+    t.integer "recruit_id"
     t.string "place_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

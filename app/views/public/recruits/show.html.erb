@@ -29,7 +29,17 @@
   <%= @recruit.member.last_name + @recruit.member.first_name %>
 </div>
 
-<%= link_to new_recruit_apply_path(@recruit) do %>
-<p>申し込み画面へ進む</p>
+<% if @recruit.member_id==current_member.id %>
+  <%= link_to edit_recruit_path(@recruit) do%>
+  <p>編集する</p>
+  <% end %>
+
+  <%= link_to "削除する", recruit_path(@recruit), method: :delete ,class: "btn btn-danger" %>
+<% else %>
+  <%= link_to new_recruit_apply_path(@recruit) do %>
+  <p>申し込み画面へ進む</p>
+  <% end %>
 <% end %>
+
+
 

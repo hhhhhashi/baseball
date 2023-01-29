@@ -5,5 +5,5 @@ class Recruit < ApplicationRecord
 
   has_many :applies, dependent: :destroy
 
-  has_many :areaes, dependent: :destroy
+  has_many :areas, dependent: :destroy
 end

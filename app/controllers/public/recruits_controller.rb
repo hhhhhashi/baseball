@@ -26,6 +26,9 @@ class Public::RecruitsController < ApplicationController
   end
 
   def destroy
+    @recruit = Recruit.find(params[:id])
+    @recruit.destroy
+    redirect_to my_page_path
   end
 
   def check
