@@ -1,9 +1,8 @@
 <h1>申し込み情報入力画面</h1>
 <h2>個人情報</h2>
-<%= form_with model: @apply, url: confirm_path ,method: :post do |f| %>
 
 <p>氏名</p>
-<%= current_member.name %>
+<%= current_member.last_name + current_member.first_name %>
 
 <p>年齢</p>
 <%= current_member.old %>
@@ -32,6 +31,12 @@
   <p>ちーむれべる</p>
   <%= @recruit.team_level %>
 </div>
+
+<%= form_with model: @apply, url: recruit_applies_path , method: :post do |f| %>
+
+<%= f.hidden_field :member_id, :value => current_member.id %>
+<%= f.hidden_field :recruit_id, :value => @recruit.id %>
+<%= f.hidden_field :is_apply, :value => "waiting_deposit" %>
 
 
 <%= f.submit "申し込む", class: "btn btn-succes" %>

@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
 
   scope module: :public do
-    resources :applies, only: [:show, :index, :new, :create]
+    resources :applies, only: [:show, :index]
     get 'confirm' => 'applies#confirm'
     post 'confirm' => 'applies#confirm'
     get 'complete' => 'applies#complete'
@@ -34,7 +34,9 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
-    resources :recruits, only: [:new, :create, :destroy, :index, :show, :edit, :update]
+    resources :recruits, only: [:new, :create, :destroy, :index, :show, :edit, :update] do
+     resources :applies, only: [:new, :create]
+    end
     post 'check' => 'recruits#check'
     get 'check' => 'recruits#check'
   end

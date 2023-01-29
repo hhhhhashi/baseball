@@ -1,2 +1,11 @@
-<h1>Public::Homes#top</h1>
-<p>Find me in app/views/public/homes/top.html.erb</p>
+<h1>新着募集要項一覧</h1>
+<% @recruits.each do |recruit| %>
+<div>
+  <p>たいとる</p>
+  <%= link_to recruit_path(recruit) do %>
+  <%= recruit.title %>
+  <% end %>
+</div>
+
+
+<% end %>
