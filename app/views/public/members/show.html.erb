@@ -22,6 +22,21 @@
 <p>電話番号</p>
 <%= @member.telephone_number %>
 
+<h2>my助っ人募集要項</h2>
+<% @recruits.each do |recruit| %>
+
+<p>タイトル</p>
+
+<%= link_to recruit_path(recruit) do %>
+<%= recruit.title %>
+<% end %>
+
+S
+
+<% end %>
+
+
+
 <p>募集要項いいね一覧画面</p>
 
 <%= link_to applies_path do %>

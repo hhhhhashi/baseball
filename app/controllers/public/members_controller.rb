@@ -1,6 +1,7 @@
 class Public::MembersController < ApplicationController
   def show
-    @member=current_member
+    @member = current_member
+    @recruits = current_member.recruits
   end
 
   def edit
