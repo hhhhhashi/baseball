@@ -1,1 +1,30 @@
 <h1>募集要項編集画面</h1>
+
+<%= form_with model: @recruit , url: recruit_path, method: :patch do |f| %>
+
+<p>タイトル</p>
+<%= f.text_field :title %>
+
+<p>チーム名</p>
+<%= f.text_field :team %>
+
+
+<P>開催場所</P>
+<%= f.text_field :area %>
+
+<p>募集日時</p>
+<%= f.date_field :day_and_time %>
+
+<p>チームレベル</p>
+<%= f.number_field :team_level %>
+
+<P>掲載期間</P>
+<%= f.text_field :post_period %>
+
+
+<p>本文</p>
+<%= f.text_field :content %>
+
+<%= f.submit "編集する", class: "btn btn-succes" %>
+
+<% end %>

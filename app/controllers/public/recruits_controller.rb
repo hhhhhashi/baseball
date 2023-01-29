@@ -20,9 +20,13 @@ class Public::RecruitsController < ApplicationController
   end
 
   def edit
+    @recruit = Recruit.find(params[:id])
   end
 
   def update
+    recruit = Recruit.find(params[:id])
+    recruit.update(recruit_params)
+    redirect_to recruit_path(recruit)
   end
 
   def destroy

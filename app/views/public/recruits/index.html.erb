@@ -2,12 +2,12 @@
 
 <% @recruits.each do |recruit| %>
 <div>
-  <p>たいとる</p>
+  <p>タイトル</p>
   <%= link_to recruit_path(recruit) do %>
   <%= recruit.title %>
   <% end %>
 
-  <p>ちーむめい</p>
+  <p>チーム名</p>
   <%= recruit.team %>
 
   <p>活動エリア</p>
@@ -16,7 +16,7 @@
   <p>日時</p>
   <%= recruit.day_and_time %>
 
-  <p>ちーむれべる</p>
+  <p>チームレベル</p>
   <%= recruit.team_level %>
 
   <p>掲載期間</p>

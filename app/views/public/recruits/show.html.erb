@@ -1,10 +1,10 @@
 <h1>募集要項詳細画面</h1>
 
 <div>
-  <p>たいとる</p>
+  <p>タイトル</p>
   <%= @recruit.title %>
 
-  <p>ちーむめい</p>
+  <p>チーム名</p>
   <%= @recruit.team %>
 
   <p>活動エリア</p>
@@ -13,7 +13,7 @@
   <p>日時</p>
   <%= @recruit.day_and_time %>
 
-  <p>ちーむれべる</p>
+  <p>チームレベル</p>
   <%= @recruit.team_level %>
 
   <p>掲載期間</p>
@@ -29,15 +29,17 @@
   <%= @recruit.member.last_name + @recruit.member.first_name %>
 </div>
 
-<% if @recruit.member_id==current_member.id %>
-  <%= link_to edit_recruit_path(@recruit) do%>
-  <p>編集する</p>
-  <% end %>
-
-  <%= link_to "削除する", recruit_path(@recruit), method: :delete ,class: "btn btn-danger" %>
-<% else %>
-  <%= link_to new_recruit_apply_path(@recruit) do %>
-  <p>申し込み画面へ進む</p>
+<% if current_member.present? %>
+  <% if @recruit.member_id == current_member.id %>
+    <%= link_to edit_recruit_path(@recruit) do%>
+      <p>編集する</p>
+    <% end %>
+    <%= link_to "削除する", recruit_path(@recruit), method: :delete ,class: "btn btn-danger" %>
+  <% else %>
+  <%# elsif @recruit.member_id ==! current_member.id %>
+    <%= link_to new_recruit_apply_path(@recruit) do %>
+      <p>申し込み画面へ進む</p>
+    <% end %>
   <% end %>
 <% end %>
 
