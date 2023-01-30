@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
 
   namespace :admin do
-    resources :members, only: [:index, :show, :edit ,:update]
+    resources :members, only: [:index, :show, :edit ,:update] do
+      resources :recruits, only: [:index]
+    end
   end
 
   namespace :admin do
-    resources :recruits, only: [:index, :show, :delete]
+    resources :recruits, only: [:show, :destroy]
   end
 
   namespace :admin do

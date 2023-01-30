@@ -1,2 +1,35 @@
-<h1>Admin::Homes#top</h1>
-<p>Find me in app/views/admin/homes/top.html.erb</p>
+<h1>募集要項一覧ページ</h1>
+
+<% @recruit.each do |recruit| %>
+
+<div>
+  <p>タイトル</p>
+  <%= link_to admin_recruit_path(recruit) do %>
+  <%= recruit.title %>
+  <% end %>
+
+  <p>チーム名</p>
+  <%= recruit.team %>
+
+  <p>活動エリア</p>
+  <%= recruit.area %>
+
+  <p>日時</p>
+  <%= recruit.day_and_time %>
+
+  <p>チームレベル</p>
+  <%= recruit.team_level %>
+
+  <p>掲載期間</p>
+  <%= recruit.post_period %>
+
+  <p>代表者電話番号</p>
+  <%= recruit.member.telephone_number %>
+
+  <p>代表者メールアドレス</p>
+  <%= recruit.member.email %>
+
+  <p>代表者</p>
+  <%= recruit.member.last_name + recruit.member.first_name %>
+</div>
+<% end %>

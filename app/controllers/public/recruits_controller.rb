@@ -32,7 +32,7 @@ class Public::RecruitsController < ApplicationController
   def destroy
     @recruit = Recruit.find(params[:id])
     @recruit.destroy
-    redirect_to my_page_path
+    redirect_to admin_root_path
   end
 
   def check
