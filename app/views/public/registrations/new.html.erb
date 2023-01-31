@@ -34,6 +34,11 @@
     <%= f.text_field :introduction, autofocus: true, autocomplete: "introduction" %>
   </div>
 
+  <p>プロフィール画像</p>
+  <div class="field">
+    <%= f.file_field :profile_image, accept: "image/*", autofocus: true, autocomplete: "profile_image" %>
+  </div>
+
   <p>電話番号(ハイフンなし)</p>
   <div class="field">
     <%= f.text_field :telephone_number, autofocus: true, autocomplete: "telephone_number" %>

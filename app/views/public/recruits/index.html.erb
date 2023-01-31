@@ -3,11 +3,7 @@
 <% @recruits.each do |recruit| %>
 <div>
   <p>画像</p>
-  <% if recruit.image.attached? %>
-  　<%= image_tag recruit.image, size: "200x200" %>
-  <% else %>
-    <%= image_tag 'no_image', size: "200x200" %>
-  <% end %>
+  <%= image_tag recruit.get_image %>
 
   <p>タイトル</p>
   <%= link_to recruit_path(recruit) do %>

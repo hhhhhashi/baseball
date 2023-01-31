@@ -1,11 +1,7 @@
 <h1>募集要項詳細画面</h1>
 
 <div>
-  <% if @recruit.image.attached? %>
-  　<%= image_tag @recruit.image, size: "200x200" %>
-  <% else %>
-    <%= image_tag 'no_image', size: "200x200" %>
-  <% end %>
+  <%= image_tag @recruit.get_image %>
 
   <p>タイトル</p>
   <%= @recruit.title %>

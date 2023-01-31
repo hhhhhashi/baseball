@@ -23,6 +23,9 @@
 
     <dt class="col-2"><p>本文</p></dt>
     <dd class="col-10"><%= f.text_field :introduction %></dd>
+
+    <dt class="col-2"><p>プロフィール画像</p></dt>
+    <dd class="col-10"><%= f.file_field :profile_image, accept: "image/*" %></dd>
   </dl>
   <%= f.submit '編集内容を保存',class: "btn btn-success" %>
 

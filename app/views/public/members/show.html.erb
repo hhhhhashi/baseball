@@ -4,6 +4,8 @@
 <p>編集する</p>
 <% end %>
 
+<%= image_tag @member.get_profile_image %>
+
 <p>会員名</p>
 <%= @member.last_name + @member.first_name %>
 
@@ -25,8 +27,10 @@
 <h2>my助っ人募集要項</h2>
 <% @recruits.each do |recruit| %>
 
-<p>タイトル</p>
+<p>画像</p>
+<%= image_tag recruit.get_image %>
 
+<p>タイトル</p>
 <%= link_to recruit_path(recruit) do %>
 <%= recruit.title %>
 <% end %>
