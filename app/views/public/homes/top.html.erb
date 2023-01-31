@@ -1,6 +1,12 @@
 <h1>新着募集要項一覧</h1>
 <% @recruits.each do |recruit| %>
 <div>
+  <% if recruit.image.attached? %>
+  　<%= image_tag recruit.image, size: "200x200" %>
+  <% else %>
+    <%= image_tag 'no_image', size: "200x200" %>
+  <% end %>
+
   <p>たいとる</p>
   <%= link_to recruit_path(recruit) do %>
   <%= recruit.title %>

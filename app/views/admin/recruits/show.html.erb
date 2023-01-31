@@ -1,6 +1,13 @@
 <h1>募集要項詳細ページ</h1>
 
 <div>
+  <p>画像</p>
+  <% if @recruit.image.attached? %>
+  　<%= image_tag @recruit.image, size: "200x200" %>
+  <% else %>
+    <%= image_tag 'no_image', size: "200x200" %>
+  <% end %>
+
   <p>タイトル</p>
   <%= @recruit.title %>
 
@@ -27,6 +34,6 @@
 
   <p>代表者</p>
   <%= @recruit.member.last_name + @recruit.member.first_name %>
-  
+
   <%= link_to "削除する", admin_recruit_path, method: :delete ,class: "btn btn-danger" %>
 </div>

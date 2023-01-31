@@ -2,6 +2,9 @@
 
 <%= form_with model: @recruit , url: recruit_path, method: :patch do |f| %>
 
+<p>画像</p>
+<%= f.file_field :image, accept: "image/*" %>
+
 <p>タイトル</p>
 <%= f.text_field :title %>
 

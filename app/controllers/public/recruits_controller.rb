@@ -42,6 +42,6 @@ class Public::RecruitsController < ApplicationController
 
   private
   def  recruit_params
-    params.require(:recruit).permit(:member_id,:title, :team, :area, :day_and_time, :team_level, :post_period, :content)
+    params.require(:recruit).permit(:member_id,:title, :team, :area, :day_and_time, :team_level, :post_period, :content, :image)
   end
 end
