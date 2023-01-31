@@ -22,6 +22,9 @@
 <p>自己紹介</p>
 <%= f.text_field :introduction %>
 
+<p>プロフィール画像</p>
+<%= f.file_field :profile_image, accept: "image/*" %>
+
 <p>会員ステータス</p>
 <p><%= f.radio_button :is_deleted, false %>有効</p>
 <p><%= f.radio_button :is_deleted, true %>退会</p>
