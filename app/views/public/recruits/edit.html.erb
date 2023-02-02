@@ -11,6 +11,8 @@
 <p>チーム名</p>
 <%= f.text_field :team %>
 
+<p>主な活動エリア</p>
+<%= f.select :area, Recruit.areas_i18n.invert, { include_blank: "指定なし" }, class: "mb-3 sm:mb-0 mr-9 border border-line-200 rounded-[3px] rounded-[3px] py-3 pl-6 w-52 h-12 font-bold" %>
 
 <P>場所</P>
 <%= f.text_field :place %>

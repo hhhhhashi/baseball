@@ -9,6 +9,9 @@
 <p>チーム名</p>
 <%= @recruit.team %>
 
+<p>主な活動エリア</p>
+<%= @recruit.area_i18n %>
+
 <p>場所</p>
 <%= @recruit.place %>
 
@@ -41,7 +44,9 @@
 <%= f.hidden_field :member_id, :value => current_member.id %>
 <%= f.hidden_field :title, :value => @recruit.title %>
 <%= f.hidden_field :team, :value => @recruit.team %>
-<%= f.hidden_field :area, :value =>  @recruit.area %>
+<%#= f.hidden_field :area, {value: @recruit.area_i18n} %>
+<%= f.hidden_field :area, :value => @recruit.area %>
+<%= f.hidden_field :place, :value =>  @recruit.place %>
 <%= f.hidden_field :day_and_time, :value => @recruit.day_and_time %>
 <%= f.hidden_field :team_level, :value => @recruit.team_level %>
 <%= f.hidden_field :post_period, :value => @recruit.post_period %>

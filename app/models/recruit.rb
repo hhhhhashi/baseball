@@ -6,6 +6,8 @@ class Recruit < ApplicationRecord
   has_many :apply, dependent: :destroy
 
   has_many :areas, dependent: :destroy
+  
+  enum area: {imperial_palace: 0, north: 1, east: 2, south: 3, west: 4 }
 
   has_one_attached :image
 
