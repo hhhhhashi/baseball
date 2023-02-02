@@ -38,6 +38,7 @@ Rails.application.routes.draw do
   scope module: :public do
     resources :recruits, only: [:new, :create, :destroy, :index, :show, :edit, :update] do
      resources :applies, only: [:new, :create]
+     resource :good_recruits, only: [:create, :destroy]
     end
     post 'check' => 'recruits#check'
     get 'check' => 'recruits#check'

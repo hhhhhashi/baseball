@@ -3,11 +3,15 @@ class Recruit < ApplicationRecord
 
   belongs_to :member
 
-  has_many :applies, dependent: :destroy
+  has_many :apply, dependent: :destroy
 
   has_many :areas, dependent: :destroy
 
   has_one_attached :image
+
+  def favorited_by?(member)
+    good_recruits.exists?(member_id: member.id)
+  end
 
   def get_image
     unless image.attached?

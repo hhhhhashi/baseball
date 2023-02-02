@@ -1,0 +1,15 @@
+class Public::GoodRecruitsController < ApplicationController
+  def create
+    recruit = Recruit.find(params[:recruit_id])
+    good_recruit = current_member.good_recruits.new(recruit_id: recruit.id)
+    good_recruit.save
+    redirect_to recruit_path(recruit)
+  end
+
+  def destroy
+    recruit = Recruit.find(params[:recruit_id])
+    good_recruit = current_member.good_recruits.find_by(recruit_id: recruit.id)
+    good_recruit.destroy
+    redirect_to recruit_path(recruit)
+  end
+end

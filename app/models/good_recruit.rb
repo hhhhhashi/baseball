@@ -1,6 +1,5 @@
 class GoodRecruit < ApplicationRecord
   belongs_to :member
-
-  has_many :recruits, dependent: :destroy
+  belongs_to :recruit
 
 end

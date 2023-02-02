@@ -39,6 +39,20 @@
     <%= link_to "削除する", recruit_path(@recruit), method: :delete ,class: "btn btn-danger" %>
   <% else %>
   <%# elsif @recruit.member_id ==! current_member.id %>
+      <% if @recruit.favorited_by?(current_member) %>
+      <p>
+        <%= link_to recruit_good_recruits_path(@recruit), method: :delete do %>
+          ♥<%= @recruit.good_recruits.count %> いいね
+        <% end %>
+      </p>
+      <% else %>
+      <p>
+        <%= link_to recruit_good_recruits_path(@recruit), method: :post do %>
+          ♡<%= @recruit.good_recruits.count %> いいね
+        <% end %>
+      </p>
+    <% end %>
+
     <%= link_to new_recruit_apply_path(@recruit) do %>
       <p>申し込み画面へ進む</p>
     <% end %>
