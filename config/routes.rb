@@ -42,6 +42,7 @@ Rails.application.routes.draw do
     end
     post 'check' => 'recruits#check'
     get 'check' => 'recruits#check'
+    get 'farvorite' => 'recruits#farvorite'
   end
   #募集要項作成ページ、一覧ページを作成するルーティングの設定
 

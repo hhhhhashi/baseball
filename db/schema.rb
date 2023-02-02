@@ -98,7 +98,8 @@ ActiveRecord::Schema.define(version: 2023_01_30_135441) do
     t.integer "member_id"
     t.string "title", null: false
     t.string "team", null: false
-    t.string "area", null: false
+    t.string "place"
+    t.string "area"
     t.datetime "day_and_time", null: false
     t.integer "team_level", null: false
     t.string "post_period", null: false

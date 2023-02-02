@@ -40,8 +40,12 @@ class Public::RecruitsController < ApplicationController
    @member = current_member
   end
 
+  def farvorite
+    @good_recruits =current_member.good_recruits
+  end
+
   private
   def  recruit_params
-    params.require(:recruit).permit(:member_id,:title, :team, :area, :day_and_time, :team_level, :post_period, :content, :image)
+    params.require(:recruit).permit(:member_id,:title, :team, :place, :area, :day_and_time, :team_level, :post_period, :content, :image)
   end
 end

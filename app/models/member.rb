@@ -5,7 +5,7 @@ class Member < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :good_recruits, dependent: :destroy
-
+  
   has_many :recruits, dependent: :destroy
 
   has_many :applies, dependent: :destroy
