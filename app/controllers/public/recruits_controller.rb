@@ -5,6 +5,7 @@ class Public::RecruitsController < ApplicationController
 
   def show
     @recruit = Recruit.find(params[:id])
+    #@applies = 
   end
 
   def new

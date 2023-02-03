@@ -15,7 +15,7 @@ class Public::AppliesController < ApplicationController
   def create
     @apply = Apply.new(apply_params)
     @apply.save
-    redirect_to root_path
+    redirect_to complete_path
   end
 
   def confirm
