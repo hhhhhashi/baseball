@@ -40,13 +40,19 @@
       <p>編集する</p>
     <% end %>
     <%= link_to "削除する", recruit_path(@recruit), method: :delete ,class: "btn btn-danger" %>
-    
-    <%# @applies.each do |applies| %>
-    
-    <%# end %>
-    
-    
-    
+
+
+    <h2>申し込み会員リスト</h2>
+    <% @applies.each do |apply| %>
+
+    <p>氏名</p>
+    <%= apply.member.last_name + apply.member.first_name %>
+
+
+    <% end %>
+
+
+
   <% else %>
   <%# elsif @recruit.member_id ==! current_member.id %>
       <% if @recruit.favorited_by?(current_member) %>

@@ -3,7 +3,7 @@ class Recruit < ApplicationRecord
 
   belongs_to :member
 
-  has_many :apply, dependent: :destroy
+  has_many :applies, dependent: :destroy
 
   has_many :areas, dependent: :destroy
   
