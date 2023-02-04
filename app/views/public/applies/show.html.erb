@@ -13,8 +13,17 @@
 <p>本文</p>
 <%= @apply.recruit.content %>
 
+<p>代表者氏名</p>
+<%= @apply.recruit.member.last_name + @apply.recruit.member.first_name %>
 
-<h2>会員情報</h2>
+<p>代表者メールアドレス</p>
+<%= @apply.recruit.member.email %>
+
+<p>代表者電話番号</p>
+<%= @apply.recruit.member.telephone_number %>
+
+
+<h2>登録情報</h2>
 
 <p>代表者氏名</p>
 <%= @apply.member.last_name + @apply.member.first_name %>

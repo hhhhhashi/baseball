@@ -3,7 +3,7 @@
 <% @good_recruits.each do |good_recruit| %>
 
 <p>タイトル</p>
-<%= link_to recruit_path(good_recruit) do %>
+<%= link_to recruit_path(good_recruit.recruit_id) do %>
 <%= good_recruit.recruit.title %>
 <% end %>
 

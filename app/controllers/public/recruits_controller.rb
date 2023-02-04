@@ -1,11 +1,12 @@
 class Public::RecruitsController < ApplicationController
   def index
-    @recruits = Recruit.all
+    #@recruits = Recruit.where()
+    @recruits =Recruit.left_joins(:member).where(members:{ is_deleted: false })
   end
 
   def show
     @recruit = Recruit.find(params[:id])
-    #@applies = 
+    #@applies =
   end
 
   def new
