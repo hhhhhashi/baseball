@@ -6,7 +6,7 @@ class Public::RecruitsController < ApplicationController
 
   def show
     @recruit = Recruit.find(params[:id])
-    @applies = @recruit.applies
+    @applies = @recruit.applies.left_joins(:member).where(members:{ is_deleted: false})
   end
 
   def new

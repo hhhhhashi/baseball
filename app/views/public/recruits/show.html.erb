@@ -48,6 +48,9 @@
     <p>氏名</p>
     <%= apply.member.last_name + apply.member.first_name %>
 
+    <p>メールアドレス</p>
+    <%= apply.member.email %>
+
 
     <% end %>
 
@@ -69,9 +72,11 @@
       </p>
     <% end %>
 
+  <% unless current_member.applies.find_by(recruit_id: @recruit.id).present? %>
     <%= link_to new_recruit_apply_path(@recruit) do %>
       <p>申し込み画面へ進む</p>
     <% end %>
+  <% end %>
   <% end %>
 <% end %>
 
