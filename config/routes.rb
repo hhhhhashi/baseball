@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
 
   scope module: :public do
-    resources :applies, only: [:show, :index]
+    resources :applies, only: [:show, :index, :update]
     get 'confirm' => 'applies#confirm'
     post 'confirm' => 'applies#confirm'
     get 'complete' => 'applies#complete'

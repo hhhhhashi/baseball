@@ -18,6 +18,13 @@ class Public::AppliesController < ApplicationController
     redirect_to complete_path
   end
 
+  def update
+    @recruit = Recruit.find(params[:recruit_id])
+    @apply = Apply.find(params[:id])
+    @apply.update(apply_params)
+    redirect_to recruit_path(@recruit)
+  end
+
   def confirm
   end
 
