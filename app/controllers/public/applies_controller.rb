@@ -19,10 +19,10 @@ class Public::AppliesController < ApplicationController
   end
 
   def update
-    @recruit = Recruit.find(params[:recruit_id])
+    #@recruit = Recruit.find(params[:recruit_id])
     @apply = Apply.find(params[:id])
     @apply.update(apply_params)
-    redirect_to recruit_path(@recruit)
+    redirect_to recruit_path(@apply.recruit_id)
   end
 
   def confirm

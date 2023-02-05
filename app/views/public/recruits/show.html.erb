@@ -52,7 +52,7 @@
     <%= apply.member.email %>
 
     <p>申込ステータス</p>
-    <%= form_with model: apply,url:applies_path(apply) do |f| %>
+    <%= form_with model: apply,url:apply_path(apply) do |f| %>
     <%= f.select :is_apply, Apply.is_applies.keys.map {|k| [I18n.t("enums.apply.is_apply.#{k}"), k]} %>
     <%= f.submit "更新",class: "btn btn-success" %>
     <% end %>
