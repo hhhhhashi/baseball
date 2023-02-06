@@ -1,9 +1,22 @@
+<div class="main_visual">
+  <div class="main_visual_content">
+    <div class="main_visual_text">
+      <h2>ALL STAR</h2>
+      <p>私は4月から新潟から千葉に引っ越してきました。</br>
+      学生の頃は社会人野球を趣味にしていましたが上京してきて野球に触れる機会がなくなりました。</br>
+      単純に自分が野球やりたいという思いからこのサイトを作成しました。
+      </p>
+    </div>
+  </div>
+</div>
+
 <h1>新着募集要項一覧</h1>
+
 <% @recruits.each do |recruit| %>
 <div>
   <%= image_tag recruit.get_image %>
 
-  <p>たいとる</p>
+  <p>タイトル</p>
   <%= link_to recruit_path(recruit) do %>
   <%= recruit.title %>
   <% end %>

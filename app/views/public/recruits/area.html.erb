@@ -1,11 +1,14 @@
 <h1>募集要項一覧画面</h1>
 <%= form_with url: area_path, method: :get do |f| %>
-<%= f.select :area, Recruit.areas_i18n.invert, { include_blank: "指定なし" }, class: "mb-3 sm:mb-0 mr-9 border border-line-200 rounded-[3px] rounded-[3px] py-3 pl-6 w-52 h-12 font-bold" %>
+<%= f.select :area, Recruit.areas_i18n.invert, { include_blank: "その他" }, class: "mb-3 sm:mb-0 mr-9 border border-line-200 rounded-[3px] rounded-[3px] py-3 pl-6 w-52 h-12 font-bold" %>
 <%= f.submit "検索" %>
 <% end %>
 
+<%= link_to recruits_path do %>
+一覧画面へ
+<% end %>
 
-<% @recruits.each do |recruit| %>
+<% @area.each do |recruit| %>
 <div>
   <p>画像</p>
   <%= image_tag recruit.get_image %>

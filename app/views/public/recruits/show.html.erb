@@ -44,20 +44,17 @@
 
     <h2>申し込み会員リスト</h2>
     <% @applies.each do |apply| %>
-
-    <p>氏名</p>
-    <%= apply.member.last_name + apply.member.first_name %>
-
-    <p>メールアドレス</p>
-    <%= apply.member.email %>
-
-    <p>申込ステータス</p>
-    <%= form_with model: apply,url:apply_path(apply) do |f| %>
-    <%= f.select :is_apply, Apply.is_applies.keys.map {|k| [I18n.t("enums.apply.is_apply.#{k}"), k]} %>
-    <%= f.submit "更新",class: "btn btn-success" %>
-    <% end %>
-
-
+      <p>氏名</p>
+      <%= apply.member.last_name + apply.member.first_name %>
+  
+      <p>メールアドレス</p>
+      <%= apply.member.email %>
+  
+      <p>申込ステータス</p>
+      <%= form_with model: apply,url:apply_path(apply) do |f| %>
+      <%= f.select :is_apply, Apply.is_applies.keys.map {|k| [I18n.t("enums.apply.is_apply.#{k}"), k]} %>
+      <%= f.submit "更新",class: "btn btn-success" %>
+      <% end %>
     <% end %>
 
 

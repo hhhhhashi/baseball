@@ -1,7 +1,12 @@
 class Public::RecruitsController < ApplicationController
   def index
-    #@recruits = Recruit.where()
+    #@recruit =Recruit.where(area: params[:area])
     @recruits =Recruit.left_joins(:member).where(members:{ is_deleted: false })
+  end
+
+  def area
+    @recruits =Recruit.left_joins(:member).where(members:{ is_deleted: false })
+    @area =Recruit.where(area: params[:area])
   end
 
   def show
