@@ -16,6 +16,8 @@ class Public::AppliesController < ApplicationController
     @apply = Apply.new(apply_params)
     @apply.save
     redirect_to complete_path
+    
+    @post.create_notification_apply!(current_member, @apply.id)
   end
 
   def update

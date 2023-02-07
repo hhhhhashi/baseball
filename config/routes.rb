@@ -46,6 +46,9 @@ Rails.application.routes.draw do
     get 'area' => 'recruits#area'
   end
   #募集要項作成ページ、一覧ページを作成するルーティングの設定
+  scope module: :public do
+    resources :notifications, only: :index
+  end
 
 
 
