@@ -5,7 +5,7 @@ class Public::GoodRecruitsController < ApplicationController
     good_recruit.save
     redirect_to recruit_path(recruit)
     
-    post.create_notification_like!(current_member)
+    good_recruit.create_notification_like!(current_member)
   end
 
   def destroy

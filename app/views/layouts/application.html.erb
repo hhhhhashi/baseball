@@ -57,6 +57,13 @@
                     助っ人募集要項作成
                     <% end %>
                   </li>
+
+                  <li class="nav-item">
+                    <%= link_to notifications_path, class: 'nav-link text-light' do %>
+                    通知
+                    <% end %>
+                  </li>
+
                   <li class="nav-item">
                     <%= link_to destroy_member_session_path, method: :delete, class: 'nav-link text-light' do %>
                     ログアウト

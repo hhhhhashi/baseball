@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_07_123639) do
+ActiveRecord::Schema.define(version: 2023_02_07_103335) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -97,14 +97,14 @@ ActiveRecord::Schema.define(version: 2023_02_07_123639) do
   create_table "notifications", force: :cascade do |t|
     t.integer "visitor_id", null: false
     t.integer "visited_id", null: false
-    t.integer "recruit_id"
+    t.integer "good_recruit_id"
     t.integer "apply_id"
     t.string "action", default: "", null: false
     t.boolean "checked", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["apply_id"], name: "index_notifications_on_apply_id"
-    t.index ["recruit_id"], name: "index_notifications_on_recruit_id"
+    t.index ["good_recruit_id"], name: "index_notifications_on_good_recruit_id"
     t.index ["visited_id"], name: "index_notifications_on_visited_id"
     t.index ["visitor_id"], name: "index_notifications_on_visitor_id"
   end

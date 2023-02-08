@@ -26,39 +26,9 @@ class Recruit < ApplicationRecord
   end
 
 
-  def create_notification_like!(current_user)
-    # すでに「いいね」されているか検索
-    temp = Notification.where(["visitor_id = ? and visited_id = ? and recruit_id = ? and action = ? ", current_member.id, member_id, id, 'like'])
-    # いいねされていない場合のみ、通知レコードを作成
-    if temp.blank?
-      notification = current_member.active_notifications.new(
-        recruit_id: id,
-        visited_id: member_id,
-        action: 'like'
-      )
-      # 自分の投稿に対するいいねの場合は、通知済みとする
-      if notification.visitor_id == notification.visited_id
-        notification.checked = true
-      end
-      notification.save if notification.valid?
-    end
-  end
+  
 
 
-  def create_notification_apply!(current_user, apply_id)
-    # すでに「申し込み」されているか検索
-    temp = Notification.where(["visitor_id = ? and visited_id = ? and apply_id = ? and action = ? ", current_member.id, member_id, id, 'apply'])
-    # 申し込みされていない場合のみ、通知レコードを作成
-    if temp.blank?
-      notification = current_member.active_notifications.new(
-        recruit_id: id,
-        apply_id: apply_id,
-        visited_id: member_id,
-        action: 'apply'
-      )
 
-      notification.save if notification.valid?
-    end
-  end
 
 end
