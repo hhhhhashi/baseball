@@ -7,7 +7,7 @@ class Apply < ApplicationRecord
 
   enum is_apply: {examination: 0, approval: 1, deny: 2 }
 
-    def create_notification_apply!(current_member,member_id, apply_id)
+    def create_notification_apply!(current_member, member_id, apply_id)
     # すでに「申し込み」されているか検索
       temp = Notification.where(["visitor_id = ? and visited_id = ? and apply_id = ? and action = ? ", current_member.id, member_id, apply_id, 'apply'])
       # 申し込みされていない場合のみ、通知レコードを作成

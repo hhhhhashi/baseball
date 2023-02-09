@@ -3,9 +3,11 @@ class Public::GoodRecruitsController < ApplicationController
     recruit = Recruit.find(params[:recruit_id])
     good_recruit = current_member.good_recruits.new(recruit_id: recruit.id)
     good_recruit.save
+    good_recruit.create_notification_good_recruit!(current_member, good_recruit.recruit.member_id, good_recruit.id )
+
     redirect_to recruit_path(recruit)
-    
-    good_recruit.create_notification_like!(current_member)
+
+
   end
 
   def destroy

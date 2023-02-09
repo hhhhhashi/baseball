@@ -1,23 +1,23 @@
 class GoodRecruit < ApplicationRecord
   belongs_to :member
   belongs_to :recruit
-  
-  def create_notification_like!(current_user)
+
+  has_many :notifications, dependent: :destroy
+
+  def create_notification_good_recruit!(current_member, member_id, good_recruit_id )
     # すでに「いいね」されているか検索
-    temp = Notification.where(["visitor_id = ? and visited_id = ? and recruit_id = ? and action = ? ", current_member.id, member_id, id, 'like'])
+    temp = Notification.where(["visitor_id = ? and visited_id = ? and good_recruit_id = ? and action = ? ", current_member.id, member_id, id, 'good_recruit'])
     # いいねされていない場合のみ、通知レコードを作成
     if temp.blank?
-      notification = Notifications.new(
-        recruit_id: id,
+      notification = Notification.new(
+        visitor_id: current_member.id,
+        good_recruit_id: good_recruit_id,
         visited_id: member_id,
-        action: 'like'
+        action: 'good_recruit'
       )
-      # 自分の投稿に対するいいねの場合は、通知済みとする
-      if notification.visitor_id == notification.visited_id
-        notification.checked = true
-      end
+
       notification.save if notification.valid?
     end
   end
-  
+
 end

@@ -1,9 +1,15 @@
 <h1>通知一覧画面</h1>
-
+<h2>申し込み通知</h2>
 <% @notifications.each do |notification| %>
-  <%= notification.visitor.last_name %>
-
+    <p><%= notification.visitor.last_name + notification.visitor.first_name %>が<%= notification.apply.recruit.title %>の募集要項に申し込みしました。</p>
+    <p><%= notification.visitor.last_name + notification.visitor.first_name %>が<%#= notification.good_recruit.recruit.title %>の募集要項にいいねしました。</p>
 <% end %>
+
+<h2>いいね通知</h2>
+<%# @notifications.each do |notification| %>
+  <p><%#= notification.visitor.last_name + notification.visitor.first_name %>が<%#= notification.good_recruit.recruit.title %>の募集要項にいいねいいねしました。</p>
+
+<%# end %>
 
 <%# notifications = @notifications.where.not(visitor_id: current_member.id) %>
 <%# if notifications.exists? %>
