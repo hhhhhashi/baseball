@@ -12,3 +12,8 @@ ja:
           examination: "検討中"
           approval: "承認"
           deny: "否認"
+      report:
+        status:
+          waiting: "対応待ち"
+          keep: "保留"
+          finish: "対応済み"

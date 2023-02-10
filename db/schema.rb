@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_07_103335) do
+ActiveRecord::Schema.define(version: 2023_02_10_131907) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -119,6 +119,16 @@ ActiveRecord::Schema.define(version: 2023_02_07_103335) do
     t.integer "team_level", null: false
     t.string "post_period", null: false
     t.text "content", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.integer "reporter_id", null: false
+    t.integer "reported_id", null: false
+    t.text "reason", null: false
+    t.text "url"
+    t.integer "status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
