@@ -1,0 +1,43 @@
+<h2>検索結果 "<%= @keyword %>"</h2>
+  <ul>
+    <% @recruits.each do |recruit| %>
+<div>
+  <p>画像</p>
+  <%= image_tag recruit.get_image %>
+
+  <p>タイトル</p>
+  <%= link_to recruit_path(recruit) do %>
+  <%= recruit.title %>
+  <% end %>
+
+  <p>チーム名</p>
+  <%= recruit.team %>
+
+  <p>主な活動エリア</p>
+  <%= recruit.area_i18n %>
+
+  <p>場所</p>
+  <%= recruit.place %>
+
+  <p>日時</p>
+  <%= recruit.day_and_time %>
+
+  <p>チームレベル</p>
+  <%= recruit.team_level %>
+
+  <p>掲載期間</p>
+  <%= recruit.post_period %>
+
+  <p>代表者電話番号</p>
+  <%= recruit.member.telephone_number %>
+
+  <p>代表者メールアドレス</p>
+  <%= recruit.member.email %>
+
+  <p>代表者</p>
+  <%= recruit.member.last_name + recruit.member.first_name %>
+
+
+</div>
+<% end %>
+  </ul>

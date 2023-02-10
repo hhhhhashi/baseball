@@ -69,6 +69,12 @@
                     ログアウト
                     <% end %>
                   </li>
+
+                  <%= form_with url: search_path, local: true, method: :get do |form| %>
+                  <%= form.text_field :keyword %>
+                  <%= form.submit "検索" %>
+                  <% end %>
+
                 <% else %>
                   <li class="nav-item">
                     <%= link_to about_path, class: 'nav-link text-light' do %>
@@ -90,6 +96,11 @@
                     ログイン
                     <% end %>
                   </li>
+
+                  <%= form_with url: search_path, local: true, method: :get do |form| %>
+                  <%= form.text_field :keyword %>
+                  <%= form.submit "検索" %>
+                  <% end %>
                 <% end %>
     </header>
 

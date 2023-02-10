@@ -51,6 +51,15 @@ class Public::RecruitsController < ApplicationController
     @good_recruits =current_member.good_recruits
   end
 
+  def search
+    if params[:keyword].present?
+      @recruits= Recruit.where('content LIKE ?', "%#{params[:keyword]}%")
+      @keyword = params[:keyword]
+    else
+      @recruits= Recruit.all
+    end
+  end
+
   private
   def  recruit_params
     params.require(:recruit).permit(:member_id,:title, :team, :place, :area, :day_and_time, :team_level, :post_period, :content, :image)

@@ -44,10 +44,11 @@ Rails.application.routes.draw do
     get 'check' => 'recruits#check'
     get 'farvorite' => 'recruits#farvorite'
     get 'area' => 'recruits#area'
+    get 'search' => 'recruits#search'
   end
   #募集要項作成ページ、一覧ページを作成するルーティングの設定
-  
-  
+
+
   scope module: :public do
     resources :notifications, only: :index
   end
