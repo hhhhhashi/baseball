@@ -14,6 +14,10 @@ Rails.application.routes.draw do
     root to: 'homes#top'
   end
 
+  namespace :admin do
+    resources :reports, only: [:index, :show, :update]
+  end
+
 
   scope module: :public do
     resources :applies, only: [:show, :index, :update]
@@ -28,7 +32,10 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
-    get 'my_page' => 'members#show'
+    get 'my_page' => 'members#show' do
+      resources :reports, only: [:new, :create]
+    end
+
     get 'information/edit' => 'members#edit'
     patch 'information/edit' => 'members#update'
     get 'unsubscribe' => 'members#unsubscribe'
@@ -52,6 +59,7 @@ Rails.application.routes.draw do
   scope module: :public do
     resources :notifications, only: :index
   end
+
 
 
 
