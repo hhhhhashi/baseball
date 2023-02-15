@@ -36,7 +36,7 @@ Rails.application.routes.draw do
     get 'my_page' => 'members#show' do
       resources :reports, only: [:new, :create]
     end
-    get 'detail' => 'member#detail'
+    get '/detail/:id' => 'members#detail', as: "member_detail"
     get 'information/edit' => 'members#edit'
     patch 'information/edit' => 'members#update'
     get 'unsubscribe' => 'members#unsubscribe'

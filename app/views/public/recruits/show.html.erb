@@ -31,8 +31,9 @@
   <%= @recruit.member.email %>
 
   <p>代表者</p>
-  <%#= link_to   do%>
+  <%= link_to member_detail_path(@recruit.member.id) do %>
   <%= @recruit.member.last_name + @recruit.member.first_name %>
+  <% end %>
 </div>
 
 <% if current_member.present? %>
@@ -46,7 +47,9 @@
     <h2>申し込み会員リスト</h2>
     <% @applies.each do |apply| %>
       <p>氏名</p>
+      <%= link_to member_detail_path(apply.member.id) do %>
       <%= apply.member.last_name + apply.member.first_name %>
+      <% end %>
 
       <p>メールアドレス</p>
       <%= apply.member.email %>

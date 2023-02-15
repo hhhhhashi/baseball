@@ -1,0 +1,24 @@
+<h1><%= @member.last_name + @member.first_name %>の会員情報</h1>
+
+<%= image_tag @member.get_profile_image %>
+
+<p>会員名</p>
+<%= @member.last_name + @member.first_name %>
+
+<p>性別</p>
+<%= @member.sex %>
+
+<p>年齢</p>
+<%= @member.old %>
+
+<p>生年月日</p>
+<%= @member.birthday %>
+
+<p>メールアドレス</p>
+<%= @member.email %>
+
+<p>電話番号</p>
+<%= @member.telephone_number %>
+
+<p>自己紹介</p>
+<%= @member.introduction %>
