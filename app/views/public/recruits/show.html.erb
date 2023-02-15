@@ -31,6 +31,7 @@
   <%= @recruit.member.email %>
 
   <p>代表者</p>
+  <%#= link_to   do%>
   <%= @recruit.member.last_name + @recruit.member.first_name %>
 </div>
 
@@ -46,10 +47,10 @@
     <% @applies.each do |apply| %>
       <p>氏名</p>
       <%= apply.member.last_name + apply.member.first_name %>
-  
+
       <p>メールアドレス</p>
       <%= apply.member.email %>
-  
+
       <p>申込ステータス</p>
       <%= form_with model: apply,url:apply_path(apply) do |f| %>
       <%= f.select :is_apply, Apply.is_applies.keys.map {|k| [I18n.t("enums.apply.is_apply.#{k}"), k]} %>
@@ -73,13 +74,15 @@
           ♡<%= @recruit.good_recruits.count %> いいね
         <% end %>
       </p>
-    <% end %>
+      <% end %>
 
   <% unless current_member.applies.find_by(recruit_id: @recruit.id).present? %>
     <%= link_to new_recruit_apply_path(@recruit) do %>
       <p>申し込み画面へ進む</p>
     <% end %>
   <% end %>
+
+
   <% end %>
 <% end %>
 

@@ -1,11 +1,23 @@
 <h1>通知一覧画面</h1>
-<% @notifications.each do |notification| %>
-    <p><%= notification.visitor.last_name + notification.visitor.first_name %>が<%= notification.apply.recruit.title %>の募集要項に申し込みしました。</p>
-    <p><%= notification.visitor.last_name + notification.visitor.first_name %>が<%= notification.good_recruit.recruit.title %>の募集要項にいいねしました。</p>
+<% if @notifications.present? %>
+
+  <% @notifications.each do |notification| %>
+    <% case notification.action %>
+     <% when 'apply' then %>
+      <p><%= notification.visitor.last_name + notification.visitor.first_name %>が<%= notification.apply.recruit.title %>の募集要項に申し込みしました。</p>
+     <% when 'good_recruit' then %>
+      <p><%= notification.visitor.last_name + notification.visitor.first_name %>が<%= notification.good_recruit.recruit.title %>の募集要項にいいねしました。</p>
+    <% else %>
+    <% end %>
+  <% end %>
+
+<% else %>
+  <p>通知はありません</p>
+
 <% end %>
 
 <%# @notifications.each do |notification| %>
-<%#= notification.visitor.last_name + notification.visitor.first_name %>が<%#= notification.good_recruit.recruit.title %>
+<%#= notification.visitor.last_name + notification.visitor.first_name %><%#= notification.good_recruit.recruit.title %>
 
 <%# end %>
 

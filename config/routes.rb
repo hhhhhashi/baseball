@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :members, only: [:index, :show, :edit ,:update] do
       resources :recruits, only: [:index]
+    resources :reports, only: [:index, :show, :update]
     end
   end
 
@@ -15,7 +16,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :reports, only: [:index, :show, :update]
+
   end
 
 
@@ -35,7 +36,7 @@ Rails.application.routes.draw do
     get 'my_page' => 'members#show' do
       resources :reports, only: [:new, :create]
     end
-
+    get 'detail' => 'member#detail'
     get 'information/edit' => 'members#edit'
     patch 'information/edit' => 'members#update'
     get 'unsubscribe' => 'members#unsubscribe'
