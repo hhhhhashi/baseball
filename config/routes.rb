@@ -33,9 +33,8 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
-    get 'my_page' => 'members#show' do
-      resources :reports, only: [:new, :create]
-    end
+    get 'my_page' => 'members#show'
+    resources :reports, only: [:new, :create]
     get '/detail/:id' => 'members#detail', as: "member_detail"
     get 'information/edit' => 'members#edit'
     patch 'information/edit' => 'members#update'

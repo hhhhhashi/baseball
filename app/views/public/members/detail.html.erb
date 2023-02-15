@@ -22,3 +22,7 @@
 
 <p>自己紹介</p>
 <%= @member.introduction %>
+
+<% if @member != current_member %>
+  <%= link_to "ユーザーを通報", new_report_path(@member), class: "btn btn-danger" %>
+<% end %>
