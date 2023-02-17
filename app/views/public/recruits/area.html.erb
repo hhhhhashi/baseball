@@ -36,14 +36,11 @@
   <p>掲載期間</p>
   <%= recruit.post_period %>
 
-  <p>代表者電話番号</p>
-  <%= recruit.member.telephone_number %>
-
-  <p>代表者メールアドレス</p>
-  <%= recruit.member.email %>
 
   <p>代表者</p>
+  <%= link_to member_detail_path(recruit.member.id) do %>
   <%= recruit.member.last_name + recruit.member.first_name %>
+  <% end %>
 
 
 </div>
