@@ -23,6 +23,12 @@
 <p>自己紹介</p>
 <%= @member.introduction %>
 
-<% if @member != current_member %>
-  <%= link_to "ユーザーを通報", report_page_path(member_id: @member.id), class: "btn btn-danger" %>
+<% if member_signed_in? %>
+
+  <% if @member != current_member %>
+    <%= link_to "ユーザーを通報", report_page_path(member_id: @member.id), class: "btn btn-danger" %>
+  <% end %>
+
+<% elsif %>
+
 <% end %>
