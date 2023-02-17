@@ -1,7 +1,7 @@
 class Public::ReportsController < ApplicationController
   def new
     @report = Report.new
-    @Member = Member.find(params[:member_id])
+    @member = Member.find(params[:member_id])
   end
 
   def create
@@ -9,7 +9,7 @@ class Public::ReportsController < ApplicationController
     @report = Report.new(report_params)
     @report.reporter_id = current_member.id
     @report.reported_id = @member.id
-    if @report.save
+    if @report.save!
       redirect_to recruits_path, notice: "ご報告ありがとうございます。"
     else
       render　"new"
@@ -19,6 +19,6 @@ class Public::ReportsController < ApplicationController
   private
 
   def report_params
-    params.repuire(:report).permit(:reason, :url)
+    params.require(:report).permit(:reason, :url)
   end
 end

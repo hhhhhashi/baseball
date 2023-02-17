@@ -2,4 +2,16 @@
 
 <% @reports.each do |report| %>
 
+<p>通報ID</p>
+<%= link_to report.id, admin_report_path(report) %>
+
+<p>会員名</p>
+<%= report.reported.last_name + report.reported.first_name %>
+
+<p>通報者</p>
+<%= report.reporter.last_name + report.reporter.first_name %>
+
+<p>通報ステータス</p>
+<%= report.status_i18n %>
+
 <% end %>

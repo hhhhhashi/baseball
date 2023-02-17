@@ -1,6 +1,7 @@
-class Public::ReportsController < ApplicationController
+class Admin::ReportsController < ApplicationController
+
   def index
-    @reports = Report.all  #全ての通報を取得
+    @reports = Report.all
   end
 
   def show
@@ -9,9 +10,9 @@ class Public::ReportsController < ApplicationController
 
   def update
     @report = Report.find(params[:id])
-    if @report.update(report_params) #ストロングパラメータを通して更新
+    if @report.update(report_params)
       flash[:notice] = "対応ステータスを更新しました。"
-　　　　　　　　　　　　redirect_to request.referer
+      redirect_to admin_report_path(@report)
     end
   end
 

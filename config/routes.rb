@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :members, only: [:index, :show, :edit ,:update] do
       resources :recruits, only: [:index]
-    resources :reports, only: [:index, :show, :update]
     end
+    resources :reports, only: [:index, :show, :update]
   end
 
   namespace :admin do
@@ -34,12 +34,14 @@ Rails.application.routes.draw do
 
   scope module: :public do
     get 'my_page' => 'members#show'
-    resources :reports, only: [:new, :create]
     get '/detail/:id' => 'members#detail', as: "member_detail"
     get 'information/edit' => 'members#edit'
     patch 'information/edit' => 'members#update'
     get 'unsubscribe' => 'members#unsubscribe'
     patch 'withdrawal' => 'members#withdrawal'
+
+    post 'report/:member_id' => 'reports#create' , as: "report"
+    get 'report/:member_id' => 'reports#new' , as: "report_page"
   end
 
   scope module: :public do
