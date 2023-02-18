@@ -1,35 +1,54 @@
-<h1>募集要項一覧画面</h1>
+<h2 calss="mb-4">募集要項一覧画面</h2>
 <%= form_with url: area_path, method: :get do |f| %>
 <%= f.select :area, Recruit.areas_i18n.invert, { include_blank: "指定なし" }, class: "mb-3 sm:mb-0 mr-9 border border-line-200 rounded-[3px] rounded-[3px] py-3 pl-6 w-52 h-12 font-bold" %>
 <%= f.submit "検索" %>
 <% end %>
 
+<div class="container">
+  <div class="row">
+    <% @recruits.each do |recruit| %>
+      <div class="col-lg-6">
+        <div class="mr-auto">
+          <div>
+            <%= image_tag recruit.get_image %>
+          </div>
 
-<% @recruits.each do |recruit| %>
-<div>
-  <p>画像</p>
-  <%= image_tag recruit.get_image %>
+          <div>
+            <p>タイトル</p>
+            <%= link_to recruit_path(recruit) do %>
+            <%= recruit.title %>
+            <% end %>
+          </div>
 
-  <p>タイトル</p>
-  <%= link_to recruit_path(recruit) do %>
-  <%= recruit.title %>
-  <% end %>
+          <div>
+            <p>チーム名</p>
+            <%= recruit.team %>
+          </div>
 
-  <p>チーム名</p>
-  <%= recruit.team %>
+          <div>
+            <p>主な活動エリア</p>
+            <%= recruit.area_i18n %>
+          </div>
 
-  <p>主な活動エリア</p>
-  <%= recruit.area_i18n %>
+          <div>
+            <p>場所</p>
+            <%= recruit.place %>
+          </div>
 
-  <p>場所</p>
-  <%= recruit.place %>
+          <div>
+            <p>日時</p>
+            <%= recruit.day_and_time %>
+          </div>
 
-  <p>日時</p>
-  <%= recruit.day_and_time %>
+          <div>
+            <p>掲載期間</p>
+          <%= recruit.post_period %>
+          </div>
 
-  <p>掲載期間</p>
-  <%= recruit.post_period %>
-
-
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
-<% end %>
+
+

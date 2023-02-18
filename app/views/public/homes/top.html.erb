@@ -10,17 +10,28 @@
   </div>
 </div>
 
-<h1>新着募集要項一覧</h1>
+<h2 class="mb-4">新着募集要項一覧</h2>
 
-<% @recruits.each do |recruit| %>
-<div>
-  <%= image_tag recruit.get_image %>
+<div class="container">
+  <div class="row">
+    <% @recruits.each do |recruit| %>
+      <div class="mr-auto">
+        <div>
+          <%= image_tag recruit.get_image %>
+        </div>
 
-  <p>タイトル</p>
-  <%= link_to recruit_path(recruit) do %>
-  <%= recruit.title %>
-  <% end %>
+        <div>
+          <p>タイトル</p>
+          <%= link_to recruit_path(recruit) do %>
+          <%= recruit.title %>
+          <% end %>
+        </div>
+
+      </div>
+    <% end %>
+  </div>
 </div>
 
 
-<% end %>
+
+<%= paginate @recruits,class: "mt-4" %>
