@@ -27,6 +27,8 @@
 <p>本文</p>
 <%= @member.introduction %>
 
+
+
 <h2>my助っ人募集要項</h2>
 <% @recruits.each do |recruit| %>
 
@@ -37,6 +39,8 @@
 <%= link_to recruit_path(recruit) do %>
 <%= recruit.title %>
 <% end %>
+
+ <p><%= link_to "#{recruit.post_comments.count} コメント", recruit_path(recruit.id) %></p>
 
 
 <% end %>

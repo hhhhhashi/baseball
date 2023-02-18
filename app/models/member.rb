@@ -5,11 +5,13 @@ class Member < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :good_recruits, dependent: :destroy
-  
+
+  has_many :post_comments, dependent: :destroy
+
   has_many :recruits, dependent: :destroy
 
   has_many :applies, dependent: :destroy
-  
+
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
 

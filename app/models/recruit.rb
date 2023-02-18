@@ -1,6 +1,8 @@
 class Recruit < ApplicationRecord
   has_many :good_recruits, dependent: :destroy
 
+  has_many :post_comments, dependent: :destroy
+
   belongs_to :member
 
   has_many :applies, dependent: :destroy
@@ -26,7 +28,7 @@ class Recruit < ApplicationRecord
   end
 
 
-  
+
 
 
 

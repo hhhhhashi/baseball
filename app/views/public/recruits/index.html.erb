@@ -42,7 +42,11 @@
 
           <div>
             <p>掲載期間</p>
-          <%= recruit.post_period %>
+            <%= recruit.post_period %>
+          </div>
+
+          <div>
+            <p><%= link_to "#{recruit.post_comments.count} コメント", recruit_path(recruit.id) %></p>
           </div>
 
         </div>

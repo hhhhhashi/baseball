@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_10_131907) do
+ActiveRecord::Schema.define(version: 2023_02_18_090520) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -107,6 +107,14 @@ ActiveRecord::Schema.define(version: 2023_02_10_131907) do
     t.index ["good_recruit_id"], name: "index_notifications_on_good_recruit_id"
     t.index ["visited_id"], name: "index_notifications_on_visited_id"
     t.index ["visitor_id"], name: "index_notifications_on_visitor_id"
+  end
+
+  create_table "post_comments", force: :cascade do |t|
+    t.integer "recruit_id"
+    t.integer "member_id"
+    t.text "comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "recruits", force: :cascade do |t|
