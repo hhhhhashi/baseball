@@ -31,5 +31,21 @@
   <p>代表者</p>
   <%= @recruit.member.last_name + @recruit.member.first_name %>
 
+  <div>
+    <p>コメント件数：<%= @recruit.post_comments.count %></p>
+    <% @recruit.post_comments.each do |post_comment| %>
+      <p><%= image_tag post_comment.member.get_profile_image %></p>
+
+      <%= link_to member_detail_path(post_comment.member.id) do %>
+      <p><%= post_comment.member.last_name + post_comment.member.first_name %></p>
+      <% end %>
+
+      <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
+
+      <%= link_to "削除", admin_recruit_post_comment_path(post_comment.recruit, post_comment), method: :delete %>
+
+    <% end %>
+  </div>
+
   <%= link_to "削除する", admin_recruit_path, method: :delete ,class: "btn btn-danger" %>
 </div>

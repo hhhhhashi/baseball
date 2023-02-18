@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :recruits, only: [:show, :destroy]
+    resources :recruits, only: [:show, :destroy] do
+      resources :post_comments, only: [:destroy]
+    end
   end
 
   namespace :admin do
