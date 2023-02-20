@@ -30,7 +30,7 @@
   <% end %>
 </div>
 
-
+<% if member_signed_in? %>
 <div>
   <p>コメント件数：<%= @recruit.post_comments.count %></p>
   <% @recruit.post_comments.each do |post_comment| %>
@@ -49,6 +49,9 @@
     <%= f.submit "送信する" %>
   <% end %>
 </div>
+<% elsif %>
+
+<% end %>
 
 
 <% if current_member.present? %>
