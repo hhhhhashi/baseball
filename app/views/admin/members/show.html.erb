@@ -1,4 +1,4 @@
-<h1>会員詳細情報</h1>
+<h1><%= @member.last_name + @member.first_name %>の会員詳細情報</h1>
 
 <%= link_to edit_admin_member_path(@member) do %>
 <p>編集する</p>
