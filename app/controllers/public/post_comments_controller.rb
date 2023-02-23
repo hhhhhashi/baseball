@@ -5,6 +5,7 @@ class Public::PostCommentsController < ApplicationController
     comment = current_member.post_comments.new(post_comment_params)
     comment.recruit_id = recruit.id
     comment.save
+    comment.create_notification_post_comment!(current_member, post_comment.id)
     redirect_to recruit_path(recruit)
   end
 
