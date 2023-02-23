@@ -45,6 +45,10 @@
             <p><%= link_to "#{recruit.post_comments.count} コメント", recruit_path(recruit.id) %></p>
           </div>
 
+          <div>
+            <%= recruit.good_recruits.count %> いいね
+          </div>
+
         </div>
       </div>
     <% end %>

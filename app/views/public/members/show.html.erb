@@ -40,16 +40,21 @@
 <%= recruit.title %>
 <% end %>
 
- <p><%= link_to "#{recruit.post_comments.count} コメント", recruit_path(recruit.id) %></p>
+ <p><%= "#{recruit.post_comments.count} コメント" %></p>
+
+ <p><%= recruit.good_recruits.count %> いいね</p>
 
 
 <% end %>
 
+<div>
+ <%= link_to farvorite_path do %>
+ <p>募集要項いいね一覧画面</p>
+ <% end %>
+</div>
 
-<%= link_to farvorite_path do %>
-<p>募集要項いいね一覧画面</p>
-<% end %>
-
-<%= link_to applies_path do %>
-<p>申込履歴一覧画面</p>
-<% end %>
+<div>
+ <%= link_to applies_path do %>
+ <p>申込履歴一覧画面</p>
+ <% end %>
+</div>
