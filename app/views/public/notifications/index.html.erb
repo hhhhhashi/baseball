@@ -4,9 +4,23 @@
   <% @notifications.each do |notification| %>
     <% case notification.action %>
      <% when 'apply' then %>
-      <p><%= notification.visitor.last_name + notification.visitor.first_name %>が<%= notification.apply.recruit.title %>の募集要項に申し込みしました。</p>
+      <p>
+        <%= link_to member_detail_path(notification.visitor) do %>
+        <%= notification.visitor.last_name + notification.visitor.first_name %>
+        <% end %>
+        が<%= notification.apply.recruit.title %>の募集要項に申し込みしました。<br>
+
+        投稿の申込ステータスを更新してください
+      </p>
+
+
      <% when 'good_recruit' then %>
-      <p><%= notification.visitor.last_name + notification.visitor.first_name %>が<%= notification.good_recruit.recruit.title %>の募集要項にいいねしました。</p>
+      <p>
+        <%= link_to member_detail_path(notification.visitor) do %>
+        <%= notification.visitor.last_name + notification.visitor.first_name %>
+        <% end %>
+
+        が<%= notification.good_recruit.recruit.title %>の募集要項にいいねしました。</p>
     <% else %>
     <% end %>
   <% end %>

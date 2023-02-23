@@ -19,11 +19,11 @@
 <p>募集日時</p>
 <%= f.date_field :day_and_time %>
 
-<p>チームレベル</p>
-<%= f.number_field :team_level %>
+<p>チームレベル(1~10段階)</p>
+<%= f.number_field :team_level , max:10, min:0 %>
 
-<P>掲載期間</P>
-<%= f.text_field :post_period %>
+
+<%#= f.text_field :post_period %>
 
 
 <p>本文</p>

@@ -1,17 +1,31 @@
 <h1>通報一覧</h1>
 
-<% @reports.each do |report| %>
+ <div class="d-flex justify-content-between w-100">
+    <table class="table w-60">
+      <thead>
+        <th>通報ID</th>
+        <th>会員名</th>
+        <th>通報者</th>
+        <th>通報ステータス</th>
+      </thead>
+      <tbody>
+        <% @reports.each do |report| %>
+        <tr>
+          <th><%= link_to report.id, admin_report_path(report) %></th>
 
-<p>通報ID</p>
-<%= link_to report.id, admin_report_path(report) %>
+          <th>
+            <%= report.reported.last_name + report.reported.first_name %>
+          </th>
 
-<p>会員名</p>
-<%= report.reported.last_name + report.reported.first_name %>
+          <th>
+            <%= report.reporter.last_name + report.reporter.first_name %>
+          </th>
 
-<p>通報者</p>
-<%= report.reporter.last_name + report.reporter.first_name %>
-
-<p>通報ステータス</p>
-<%= report.status_i18n %>
-
-<% end %>
+          <th>
+            <%= report.status_i18n %>
+          </th>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>

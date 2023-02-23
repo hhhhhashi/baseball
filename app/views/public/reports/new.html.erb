@@ -2,8 +2,20 @@
 
 <%= form_with model:[@member, @report], url: report_path(member_id: @member.id), method: :post do |f| %>
   <div class="form-group">
-    <%= f.text_area :reason, rows:'3', class:"form-control" %>
-    <%= f.text_field :url, class:"form-control" %>
-    <%= f.submit "通報する", class: "btn btn-danger" %>
+
+    <div>
+      <p>通報理由</p>
+      <%= f.text_area :reason, rows:'3', class:"form-control" %>
+    </div>
+
+    <div>
+      <p>投稿URLなど</p>
+      <%= f.text_field :url, class:"form-control" %>
+    </div>
+
+    <div>
+      <%= f.submit "通報する", class: "btn btn-danger" %>
+    </div>
+
   </div>
 <% end %>

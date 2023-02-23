@@ -6,8 +6,8 @@ class CreateReports < ActiveRecord::Migration[6.1]
       t.text :reason, null: false
       t.text :url
       t.integer :status, default: 0, null: false
-      
-      enum status: { waiting: 0, keep: 1, finish: 2 }
+
+      #enum status: { waiting: 0, keep: 1, finish: 2 }
 
       t.timestamps
     end

@@ -36,10 +36,6 @@
             <%= recruit.day_and_time %>
           </div>
 
-          <div>
-            <p>掲載期間</p>
-            <%= recruit.post_period %>
-          </div>
 
           <div>
             <p><%= link_to "#{recruit.post_comments.count} コメント", admin_recruit_path(recruit.id) %></p>
