@@ -9,7 +9,7 @@ class Recruit < ApplicationRecord
 
   has_many :areas, dependent: :destroy
 
-  has_many :notifications, dependent: :destroy
+  has_many :notifications, dependent: :destroy, foreign_key: 'visited_id'
 
   enum area: {imperial_palace: 0, north: 1, east: 2, south: 3, west: 4 }
 
@@ -24,7 +24,7 @@ class Recruit < ApplicationRecord
       file_path = Rails.root.join('app/assets/images/no_image.jpg')
       image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
-    image.variant(resize_to_limit: [300, 300]).processed
+      image.variant(resize_to_limit: [300, 300]).processed
   end
 
 

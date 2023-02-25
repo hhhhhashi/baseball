@@ -1,5 +1,5 @@
 <h1>助っ人募集要項作成入力画面</h1>
-<%= form_with model: @recruit, url: check_path ,method: :post do |f| %>
+<%= form_with model: @recruit, url: recruits_path ,method: :post do |f| %>
 
 <p>画像</p>
 <%= f.file_field :image, accept: "image/*" %>
@@ -21,10 +21,6 @@
 
 <p>チームレベル(1~10段階)</p>
 <%= f.number_field :team_level , max:10, min:0 %>
-
-
-<%#= f.text_field :post_period %>
-
 
 <p>本文</p>
 <%= f.text_field :content %>

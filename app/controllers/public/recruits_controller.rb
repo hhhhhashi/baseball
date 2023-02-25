@@ -43,11 +43,6 @@ class Public::RecruitsController < ApplicationController
     redirect_to admin_root_path
   end
 
-  def check
-   @recruit = Recruit.new(recruit_params)
-   @member = current_member
-  end
-
   def farvorite
     @good_recruits =current_member.good_recruits
   end
