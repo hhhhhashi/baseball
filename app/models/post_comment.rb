@@ -2,9 +2,10 @@ class PostComment < ApplicationRecord
 
   belongs_to :member
   belongs_to :recruit
-  
+
   has_many :notifications, dependent: :destroy
-  
+
+  # 自分の投稿に対して誰かコメントを投稿したときに通知を投稿者に送る
   def create_notification_post_comment!(current_member, post_comment_id)
     # 自分以外にコメントしている人をすべて取得し、全員に通知を送る
     temp_ids = PostComment.select(:member_id).where(recruit_id: id).where.not(member_id: current_member.id).distinct
@@ -18,8 +19,7 @@ class PostComment < ApplicationRecord
   def save_notification_post_comment!(current_member, post_comment_id, visited_id)
     # コメントは複数回することが考えられるため、１つの投稿に複数回通知する
     notification = current_member.active_notifications.new(
-      recruit_id: id,
-      post_comment_id: comment_id,
+      post_comment_id: post_comment_id,
       visited_id: visited_id,
       action: 'comment'
     )

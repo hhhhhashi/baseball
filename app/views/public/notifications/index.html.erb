@@ -30,7 +30,7 @@
           の募集要項にいいねしました。</p>
 
 
-      <% when 'good_recruit' then %>
+      <% when 'comment' then %>
         <p>
            <%= link_to member_detail_path(notification.visitor) do %>
           <%= notification.visitor.last_name + notification.visitor.first_name %>

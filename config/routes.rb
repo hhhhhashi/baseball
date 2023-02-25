@@ -52,8 +52,8 @@ Rails.application.routes.draw do
      resources :post_comments, only: [:create]
      resource :good_recruits, only: [:create, :destroy]
     end
-    post 'check' => 'recruits#check'
-    get 'check' => 'recruits#check'
+    #post 'check' => 'recruits#check'
+    #get 'check' => 'recruits#check'
     get 'farvorite' => 'recruits#farvorite'
     get 'area' => 'recruits#area'
     get 'search' => 'recruits#search'
