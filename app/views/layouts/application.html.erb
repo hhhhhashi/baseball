@@ -58,6 +58,9 @@
                     <% end %>
                   </li>
 
+                  <% if unchecked_notifications.any? %>
+                    <i class="fa fa-circle" style="color: gold;"></i>
+                  <% end %>
                   <li class="nav-item">
                     <%= link_to notifications_path, class: 'nav-link text-light' do %>
                     通知
