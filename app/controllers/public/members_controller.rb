@@ -3,11 +3,11 @@ class Public::MembersController < ApplicationController
     @member = current_member
     @recruits = current_member.recruits
   end
-  
+
   def detail
     @member = Member.find(params[:id])
   end
-  
+
   def edit
     @member=current_member
   end
