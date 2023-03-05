@@ -118,24 +118,18 @@ ActiveRecord::Schema.define(version: 2023_02_25_095136) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "recruit_images", force: :cascade do |t|
-    t.string "image"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "recruits", force: :cascade do |t|
     t.integer "member_id"
+    t.string "title", null: false
     t.string "team", null: false
     t.string "place"
     t.integer "area"
     t.datetime "day_and_time", null: false
     t.integer "team_level", null: false
+    t.string "post_period", null: false
     t.text "content", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "title", null: false
-    t.string "post_period"
   end
 
   create_table "reports", force: :cascade do |t|
