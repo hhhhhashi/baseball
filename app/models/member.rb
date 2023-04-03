@@ -20,6 +20,11 @@ class Member < ApplicationRecord
 
   has_one_attached :profile_image
 
+  validates :last_name, presence: true
+  validates :first_name, presence: true
+  validates :old, presence: true
+  validates :telephone_number, presence: true
+
   def get_profile_image
     unless profile_image.attached?
       file_path = Rails.root.join('app/assets/images/no_user.png')
