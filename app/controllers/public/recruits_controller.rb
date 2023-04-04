@@ -40,12 +40,11 @@ class Public::RecruitsController < ApplicationController
   end
 
   def update
-    recruit = Recruit.find(params[:id])
-    if recruit.update(recruit_params)
-      flash[:notice] = "投稿を更新しました"
-      redirect_to recruit_path(recruit)
+    @recruit = Recruit.find(params[:id])
+    if @recruit.update(recruit_params)
+      flash[:notice] = "投稿を変更しました"
+      redirect_to recruit_path(@recruit)
     else
-      @recruit = Recruit.find(params[:id])
       render :edit
     end
   end

@@ -17,6 +17,7 @@ class Public::MembersController < ApplicationController
   def update
     member=current_member
     if member.update(member_params)
+      flash[:notice] = "会員情報を変更しました"
       redirect_to my_page_path
     else
       @member=current_member

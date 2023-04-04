@@ -18,7 +18,6 @@ class Public::AppliesController < ApplicationController
     @apply = Apply.new(apply_params)
     @apply.save
     @apply.create_notification_apply!(current_member, @apply.recruit.member_id, @apply.id)
-
     redirect_to complete_path
   end
 
