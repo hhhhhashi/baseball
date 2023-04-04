@@ -1,4 +1,6 @@
 class Public::MembersController < ApplicationController
+  before_action :authenticate_member!, except: [:detail]
+
   def show
     @member = current_member
     @recruits = current_member.recruits
@@ -17,6 +19,7 @@ class Public::MembersController < ApplicationController
     if member.update(member_params)
       redirect_to my_page_path
     else
+      @member=current_member
       render :edit
     end
   end

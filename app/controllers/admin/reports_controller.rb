@@ -1,4 +1,5 @@
 class Admin::ReportsController < ApplicationController
+  before_action :authenticate_admin!, only: [:index, :show, :update]
 
   def index
     @reports = Report.all

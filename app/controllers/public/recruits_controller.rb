@@ -1,4 +1,7 @@
 class Public::RecruitsController < ApplicationController
+  before_action :authenticate_member!, except: [:index,:show,:serch,:area]
+
+
   def index
     #@recruit =Recruit.where(area: params[:area])
     @recruits =Recruit.left_joins(:member).where(members:{ is_deleted: false })
@@ -42,6 +45,7 @@ class Public::RecruitsController < ApplicationController
       flash[:notice] = "投稿を更新しました"
       redirect_to recruit_path(recruit)
     else
+      @recruit = Recruit.find(params[:id])
       render :edit
     end
   end
@@ -70,4 +74,6 @@ class Public::RecruitsController < ApplicationController
   def  recruit_params
     params.require(:recruit).permit(:member_id,:title, :team, :place, :area, :day_and_time, :team_level, :post_period, :content, :image)
   end
+
+
 end
