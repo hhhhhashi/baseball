@@ -21,6 +21,7 @@ ja:
     activerecord:
       models:
         member: 会員
+        recruit: 募集要項
       attributes:
         member:
           email: メールアドレス
@@ -29,10 +30,6 @@ ja:
           first_name: 名
           old: 年齢
           telephone_number: 電話番号
-
-      models:
-        recruit: 募集要項
-      attributes:
         recruit:
           title: タイトル
           team: チーム名
