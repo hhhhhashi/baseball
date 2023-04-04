@@ -1,4 +1,6 @@
 class Public::AppliesController < ApplicationController
+  before_action :authenticate_member!, only: [:new, :index, :show, :create, :update]
+
   def new
     @apply = Apply.new
     @recruit = Recruit.find(params[:recruit_id])

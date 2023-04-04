@@ -1,4 +1,6 @@
 class Public::GoodRecruitsController < ApplicationController
+  before_action :authenticate_member!, only: [:create, :destroy]
+
   def create
     recruit = Recruit.find(params[:recruit_id])
     good_recruit = current_member.good_recruits.new(recruit_id: recruit.id)
