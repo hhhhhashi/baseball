@@ -1,4 +1,6 @@
 class Public::ReportsController < ApplicationController
+  before_action :authenticate_member!, only: [:new, :create]
+
   def new
     @report = Report.new
     @member = Member.find(params[:member_id])

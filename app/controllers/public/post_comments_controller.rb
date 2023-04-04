@@ -1,4 +1,5 @@
 class Public::PostCommentsController < ApplicationController
+  before_action :authenticate_member!, only: [:create]
 
   def create
     recruit = Recruit.find(params[:recruit_id])
