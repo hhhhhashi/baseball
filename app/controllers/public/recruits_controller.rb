@@ -1,5 +1,7 @@
 class Public::RecruitsController < ApplicationController
   before_action :authenticate_member!, except: [:index,:show,:serch,:area]
+  before_action :member_different, only: [:edit]
+
 
 
   def index
@@ -72,6 +74,13 @@ class Public::RecruitsController < ApplicationController
   private
   def  recruit_params
     params.require(:recruit).permit(:member_id,:title, :team, :place, :area, :day_and_time, :team_level, :post_period, :content, :image)
+  end
+
+  def member_different
+    my_recruit_ids = current_member.recruits.pluck(:id)
+    unless my_recruit_ids.include?(params[:id].to_i)
+      redirect_to root_path
+    end
   end
 
 

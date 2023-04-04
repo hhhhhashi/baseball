@@ -1,5 +1,6 @@
 class Public::MembersController < ApplicationController
   before_action :authenticate_member!, except: [:detail]
+  
 
   def show
     @member = current_member
@@ -40,5 +41,4 @@ class Public::MembersController < ApplicationController
   def member_params
     params.require(:member).permit(:last_name, :first_name, :old, :birthday, :sex, :telephone_number, :email, :introduction, :is_deleted, :profile_image)
   end
-
 end
