@@ -30,3 +30,14 @@ ja:
           old: 年齢
           telephone_number: 電話番号
 
+      models:
+        recruit: 募集要項
+      attributes:
+        recruit:
+          title: タイトル
+          team: チーム名
+          place: 場所
+          day_and_time: 日時
+          team_level: チームレベル
+          content: 本文
+

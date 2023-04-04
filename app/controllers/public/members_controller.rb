@@ -14,8 +14,11 @@ class Public::MembersController < ApplicationController
 
   def update
     member=current_member
-    member.update(member_params)
-    redirect_to my_page_path
+    if member.update(member_params)
+      redirect_to my_page_path
+    else
+      render :edit
+    end
   end
 
   def unsubscribe

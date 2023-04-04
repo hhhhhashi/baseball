@@ -1,28 +1,37 @@
 <h1>助っ人募集要項作成入力画面</h1>
+<% if @recruit.errors.any? %>
+  <%= @recruit.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @recruit.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_with model: @recruit, url: recruits_path ,method: :post do |f| %>
 
 <p>画像</p>
 <%= f.file_field :image, accept: "image/*" %>
 
-<p>タイトル</p>
+<p>タイトル【必須】</p>
 <%= f.text_field :title %>
 
-<p>チーム名</p>
+<p>チーム名【必須】</p>
 <%= f.text_field :team %>
 
 <p>主な活動エリア</p>
 <%= f.select :area, Recruit.areas_i18n.invert, { include_blank: "その他" }, class: "mb-3 sm:mb-0 mr-9 border border-line-200 rounded-[3px] rounded-[3px] py-3 pl-6 w-52 h-12 font-bold" %>
 
-<P>場所</P>
+<P>場所【必須】</P>
 <%= f.text_field :place %>
 
-<p>募集日時</p>
+<p>募集日時【必須】</p>
 <%= f.date_field :day_and_time %>
 
-<p>チームレベル(1~10段階)</p>
+<p>チームレベル(1~10段階)【必須】</p>
 <%= f.number_field :team_level , max:10, min:0 %>
 
-<p>本文</p>
+<p>本文【必須】</p>
 <%= f.text_field :content %>
 
 <p>代表者電話番号</p>

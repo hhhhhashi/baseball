@@ -15,6 +15,14 @@ class Recruit < ApplicationRecord
 
   has_one_attached :image
 
+  validates :title, presence: true
+  validates :team, presence: true
+  validates :place, presence: true
+  validates :day_and_time, presence: true
+  validates :team_level, presence: true
+  validates :content, presence: true
+
+
   def favorited_by?(member)
     good_recruits.exists?(member_id: member.id)
   end

@@ -23,8 +23,13 @@ class Public::RecruitsController < ApplicationController
   def create
     @recruit = Recruit.new(recruit_params)
     @recruit.member_id = current_member.id
-    @recruit.save
-    redirect_to recruit_path(@recruit)
+    if @recruit.save
+      flash[:notice] = "投稿を作成しました"
+      redirect_to recruit_path(@recruit)
+    else
+      @member =current_member
+      render :new
+    end
   end
 
   def edit
@@ -33,14 +38,19 @@ class Public::RecruitsController < ApplicationController
 
   def update
     recruit = Recruit.find(params[:id])
-    recruit.update(recruit_params)
-    redirect_to recruit_path(recruit)
+    if recruit.update(recruit_params)
+      flash[:notice] = "投稿を更新しました"
+      redirect_to recruit_path(recruit)
+    else
+      render :edit
+    end
   end
 
   def destroy
     @recruit = Recruit.find(params[:id])
     @recruit.destroy
-    redirect_to admin_root_path
+    flash[:notice] = "投稿を削除しました"
+    redirect_to my_page_path
   end
 
   def farvorite
