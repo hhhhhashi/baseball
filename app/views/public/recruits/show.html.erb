@@ -56,9 +56,7 @@
 
 <% if current_member.present? %>
   <% if @recruit.member_id == current_member.id %>
-    <%= link_to edit_recruit_path(@recruit) do%>
-      <p>編集する</p>
-    <% end %>
+    <%= link_to "編集する", edit_recruit_path(@recruit),class: "btn btn-success" %>
     <%= link_to "削除する", recruit_path(@recruit), method: :delete ,class: "btn btn-danger" %>
 
 
