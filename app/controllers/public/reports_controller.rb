@@ -12,9 +12,9 @@ class Public::ReportsController < ApplicationController
     @report.reporter_id = current_member.id
     @report.reported_id = @member.id
     if @report.save
-      #ContactMailer.send_when_member_report(@member).deliver
+      ContactMailer.send_when_member_report(@member).deliver
       redirect_to recruits_path, notice: "ご報告ありがとうございます。"
-      
+
     else
       render　"new"
     end
