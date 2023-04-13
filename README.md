@@ -33,21 +33,20 @@
 - 実装機能リスト
  https://docs.google.com/spreadsheets/d/1xUb2gAthu7sqoS9g-pwX3ssemGgO7JIC638UHHqn2hQ/edit?usp=sharing
 
-- ER図
+- UIFlow
+ https://drive.google.com/file/d/1jF2Mrl3KTYMI1jY8yz1dHKtrClRZORcY/view?usp=share_link
 
+- ER図
+ https://drive.google.com/file/d/1Z_1F0utEYsIhlYYK7-qoQuRLGupLbAVZ/view?usp=share_link
 
 - テーブル定義書
-
+ https://docs.google.com/spreadsheets/d/1of_L_pSBM1ap4RNykI_st7t9le5rv8dMopuzS9TnQsA/edit?usp=share_link
 
 - 詳細設計
-
+ https://docs.google.com/spreadsheets/d/1H3_1fySOLp5_WgE5oNQNBrRT-F8ESQvS6ipl_F5ALKw/edit?usp=sharing
 
 ## 開発環境
 - OS：Linux(CentOS)
-- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- 言語：HTML,CSS,Ruby,SQL
 - フレームワーク：Ruby on Rails
-- JSライブラリ：jQuery
 - IDE：Cloud9
-
-## 使用素材
-使用検討中です
