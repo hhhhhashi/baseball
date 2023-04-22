@@ -1,29 +1,21 @@
 <h2>検索結果 "<%= @keyword %>"</h2>
   <ul>
     <% @recruits.each do |recruit| %>
-<div>
-  <p>画像</p>
-  <%= image_tag recruit.get_image %>
-
-  <p>タイトル</p>
-  <%= link_to recruit_path(recruit) do %>
-  <%= recruit.title %>
-  <% end %>
-
-  <p>チーム名</p>
-  <%= recruit.team %>
-
-  <p>主な活動エリア</p>
-  <%= recruit.area_i18n %>
-
-  <p>場所</p>
-  <%= recruit.place %>
-
-  <p>日時</p>
-  <%= recruit.day_and_time %>
-
-
-
-</div>
-<% end %>
+      <div>
+        <p>画像</p>
+        <%= image_tag recruit.get_image %>
+        <p>タイトル</p>
+        <%= link_to recruit_path(recruit) do %>
+        <%= recruit.title %>
+        <% end %>
+        <p>チーム名</p>
+        <%= recruit.team %>
+        <p>主な活動エリア</p>
+        <%= recruit.area_i18n %>
+        <p>場所</p>
+        <%= recruit.place %>
+        <p>日時</p>
+        <%= recruit.day_and_time %>
+      </div>
+    <% end %>
   </ul>

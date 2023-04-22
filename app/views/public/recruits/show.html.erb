@@ -2,44 +2,35 @@
 <%= flash[:notice] %>
 <div>
   <%= image_tag @recruit.get_image %>
-
   <p>タイトル</p>
   <%= @recruit.title %>
-
   <p>チーム名</p>
   <%= @recruit.team %>
-
   <p>主な活動エリア</p>
   <%= @recruit.area_i18n %>
-
   <p>場所</p>
   <%= @recruit.place %>
-
   <p>日時</p>
   <%= @recruit.day_and_time %>
-
   <p>チームレベル(1~10段階)</p>
   <%= @recruit.team_level %>
-
   <p>本文</p>
   <%= @recruit.content %>
-
   <p>代表者</p>
   <%= link_to member_detail_path(@recruit.member.id) do %>
-  <%= @recruit.member.last_name + @recruit.member.first_name %>
+    <%= @recruit.member.last_name + @recruit.member.first_name %>
   <% end %>
 </div>
 
 <% if member_signed_in? %>
+<%#コメント機能%>
 <div>
   <p>コメント件数：<%= @recruit.post_comments.count %></p>
   <% @recruit.post_comments.each do |post_comment| %>
     <p><%= image_tag post_comment.member.get_profile_image %></p>
-
     <%= link_to member_detail_path(post_comment.member.id) do %>
-    <p><%= post_comment.member.last_name + post_comment.member.first_name %></p>
+      <p><%= post_comment.member.last_name + post_comment.member.first_name %></p>
     <% end %>
-
     <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
   <% end %>
 </div>
@@ -53,55 +44,48 @@
 
 <% end %>
 
-
+<%#会員がログインしているとき%>
 <% if current_member.present? %>
+  <%#投稿した会員とログインしている人が一致しているとき%>
   <% if @recruit.member_id == current_member.id %>
     <%= link_to "編集する", edit_recruit_path(@recruit),class: "btn btn-success" %>
     <%= link_to "削除する", recruit_path(@recruit), method: :delete ,class: "btn btn-danger" %>
-
-
     <h2>申し込み会員リスト</h2>
     <% @applies.each do |apply| %>
       <p>氏名</p>
       <%= link_to member_detail_path(apply.member.id) do %>
-      <%= apply.member.last_name + apply.member.first_name %>
+        <%= apply.member.last_name + apply.member.first_name %>
       <% end %>
-
       <p>メールアドレス</p>
       <%= apply.member.email %>
-
       <p>申込ステータス</p>
       <%= form_with model: apply,url:apply_path(apply) do |f| %>
       <%= f.select :is_apply, Apply.is_applies.keys.map {|k| [I18n.t("enums.apply.is_apply.#{k}"), k]} %>
       <%= f.submit "更新",class: "btn btn-success" %>
       <% end %>
     <% end %>
-
-
-
+  <%#投稿した会員とログインしている人が一致していないとき%>
   <% else %>
-  <%# elsif @recruit.member_id ==! current_member.id %>
-      <% if @recruit.favorited_by?(current_member) %>
+    <%#いいね機能%>
+    <% if @recruit.favorited_by?(current_member) %>
       <p>
         <%= link_to recruit_good_recruits_path(@recruit), method: :delete do %>
           ♥<%= @recruit.good_recruits.count %> いいね
         <% end %>
       </p>
-      <% else %>
+    <% else %>
       <p>
         <%= link_to recruit_good_recruits_path(@recruit), method: :post do %>
           ♡<%= @recruit.good_recruits.count %> いいね
         <% end %>
       </p>
-      <% end %>
-
-  <% unless current_member.applies.find_by(recruit_id: @recruit.id).present? %>
-    <%= link_to new_recruit_apply_path(@recruit) do %>
-      <p>申し込み画面へ進む</p>
     <% end %>
-  <% end %>
-
-
+    <%#ログインしている人がこの募集要項に申込しているときには表示させない%>
+    <% unless current_member.applies.find_by(recruit_id: @recruit.id).present? %>
+      <%= link_to new_recruit_apply_path(@recruit) do %>
+        <p>申し込み画面へ進む</p>
+      <% end %>
+    <% end %>
   <% end %>
 <% end %>
 

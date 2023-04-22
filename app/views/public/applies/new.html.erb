@@ -1,46 +1,33 @@
 <h1>申し込み情報入力画面</h1>
 <h2>個人情報</h2>
-
 <p>氏名</p>
 <%= current_member.last_name + current_member.first_name %>
-
 <p>年齢</p>
 <%= current_member.old %>
-
 <p>メールアドレス</p>
 <%= current_member.email %>
-
 <p>電話番号</p>
 <%= current_member.telephone_number %>
-
 
 <h2>募集要項詳細</h2>
 <div>
   <p>タイトル</p>
   <%= @recruit.title %>
-
   <p>チーム名</p>
   <%= @recruit.team %>
-
   <p>場所</p>
   <%= @recruit.place %>
-
   <p>日時</p>
   <%= @recruit.day_and_time %>
-
   <p>チームレベル</p>
   <%= @recruit.team_level %>
 </div>
 
 <%= form_with model: @apply, url: recruit_applies_path , method: :post do |f| %>
-
-<%= f.hidden_field :member_id, :value => current_member.id %>
-<%= f.hidden_field :recruit_id, :value => @recruit.id %>
-<%= f.hidden_field :is_apply, :value => "examination" %>
-
-
-<%= f.submit "申し込む", class: "btn btn-succes" %>
-
+  <%= f.hidden_field :member_id, :value => current_member.id %>
+  <%= f.hidden_field :recruit_id, :value => @recruit.id %>
+  <%= f.hidden_field :is_apply, :value => "examination" %>
+  <%= f.submit "申し込む", class: "btn btn-success" %>
 <% end %>
 
 

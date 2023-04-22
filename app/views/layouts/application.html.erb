@@ -100,6 +100,7 @@
                     <% end %>
                   </li>
 
+                  <!--キーワード検索機能-->
                   <%= form_with url: search_path, local: true, method: :get do |form| %>
                   <%= form.text_field :keyword %>
                   <%= form.submit "検索" %>

@@ -64,7 +64,7 @@ class Public::RecruitsController < ApplicationController
 
   def search
     if params[:keyword].present?
-      @recruits= Recruit.where('content LIKE ?', "%#{params[:keyword]}%")
+      @recruits= Recruit.where('title LIKE ?', "%#{params[:keyword]}%")
       @keyword = params[:keyword]
     else
       @recruits= Recruit.all

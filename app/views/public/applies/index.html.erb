@@ -1,19 +1,13 @@
 <h1>申し込み履歴一覧画面</h1>
-
-<% @applies.each do |apply| %>
-
-<p>募集要項タイトル</p>
-<%= link_to apply_path(apply) do %>
-<%= apply.recruit.title %>
-<% end %>
-
-<p>参加日</p>
-<%= apply.recruit.day_and_time %>
-
-<p>場所</p>
-<%= apply.recruit.place %>
-
-<p>申込ステータス</p>
-<%= apply.is_apply_i18n %>
-
-<% end %>
+  <% @applies.each do |apply| %>
+    <p>募集要項タイトル</p>
+    <%= link_to apply_path(apply) do %>
+    <%= apply.recruit.title %>
+    <% end %>
+    <p>参加日</p>
+    <%= apply.recruit.day_and_time %>
+    <p>場所</p>
+    <%= apply.recruit.place %>
+    <p>申込ステータス</p>
+    <%= apply.is_apply_i18n %>
+  <% end %>

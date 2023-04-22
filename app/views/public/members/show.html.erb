@@ -1,60 +1,50 @@
-<h1>myページ</h1>
-<%= flash[:notice] %>
-<%= link_to information_edit_path do %>
-<p>編集する</p>
-<% end %>
+<div>
+  <h1>myページ</h1>
+  <%= flash[:notice] %>
+  <%= link_to information_edit_path do %>
+    <p>編集する</p>
+  <% end %>
 
-<%= image_tag @member.get_profile_image %>
+  <%= image_tag @member.get_profile_image %>
 
-<p>会員名</p>
-<%= @member.last_name + @member.first_name %>
+  <p>会員名</p>
+  <%= @member.last_name + @member.first_name %>
+  <p>性別</p>
+  <%= @member.sex %>
+  <p>年齢</p>
+  <%= @member.old %>
+  <p>生年月日</p>
+  <%= @member.birthday %>
+  <p>メールアドレス</p>
+  <%= @member.email %>
+  <p>電話番号</p>
+  <%= @member.telephone_number %>
+  <p>本文</p>
+  <%= @member.introduction %>
+</div>
 
-<p>性別</p>
-<%= @member.sex %>
-
-<p>年齢</p>
-<%= @member.old %>
-
-<p>生年月日</p>
-<%= @member.birthday %>
-
-<p>メールアドレス</p>
-<%= @member.email %>
-
-<p>電話番号</p>
-<%= @member.telephone_number %>
-
-<p>本文</p>
-<%= @member.introduction %>
-
-
-
-<h2>my助っ人募集要項</h2>
-<% @recruits.each do |recruit| %>
-
-<p>画像</p>
-<%= image_tag recruit.get_image %>
-
-<p>タイトル</p>
-<%= link_to recruit_path(recruit) do %>
-<%= recruit.title %>
-<% end %>
-
- <p><%= "#{recruit.post_comments.count} コメント" %></p>
-
- <p><%= recruit.good_recruits.count %> いいね</p>
-
-
-<% end %>
+<div>
+  <h2>my助っ人募集要項</h2>
+  <% @recruits.each do |recruit| %>
+    <p>画像</p>
+    <%= image_tag recruit.get_image %>
+    <p>タイトル</p>
+    <%= link_to recruit_path(recruit) do %>
+      <%= recruit.title %>
+    <% end %>
+    <p><%= "#{recruit.post_comments.count} コメント" %></p>
+    <p><%= recruit.good_recruits.count %> いいね</p>
+  <% end %>
+</div>
 
 <div>
  <%= link_to farvorite_path do %>
- <p>募集要項いいね一覧画面</p>
+   <p>募集要項いいね一覧画面</p>
  <% end %>
 </div>
 
 <div>
  <%= link_to applies_path do %>
- <p>申込履歴一覧画面</p>
+   <p>申込履歴一覧画面</p>
  <% end %>
 </div>

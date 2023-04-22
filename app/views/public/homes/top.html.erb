@@ -13,7 +13,6 @@
 </div>
 
 <h2 class="mb-4">新着募集要項一覧</h2>
-
 <div class="container">
   <div class="row">
     <% @recruits.each do |recruit| %>
@@ -21,19 +20,14 @@
         <div>
           <%= image_tag recruit.get_image %>
         </div>
-
         <div>
           <p>タイトル</p>
             <%= link_to recruit_path(recruit) do %>
             <%= recruit.title %>
             <% end %>
         </div>
-
       </div>
     <% end %>
   </div>
 </div>
-
-
-
 <%= paginate @recruits,class: "mt-4" %>
